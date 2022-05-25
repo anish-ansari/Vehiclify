@@ -14,5 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 });
+
+
+Route::get('dashboard' ,'App\Http\Controllers\DashboardController@index');
+
+Route::get('all-users','App\Http\Controllers\Web\UserContro@index');
+Route::get('all-licenses','App\Http\Controllers\Web\UserContro@index1');
+Route::get('all-bluebooks','App\Http\Controllers\Web\UserContro@index2');
+Route::get('delete-user/{id}','App\Http\Controllers\Web\UserContro@destroy');

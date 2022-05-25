@@ -20,7 +20,36 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'phone',
+        'dateofbirth',
+        'address',
+        'fathername',
+        'citizenshipno',
         'password',
+        'licenseno',
+        'licenseoffice',
+        'dateofissue',
+        'dateofexpiry',
+        'category',
+        'companyname',
+        'model',
+        'manufacturedyear',
+        'cylinder',
+        'cc',
+        'chasisno',
+        'engineno',
+        'color',
+        'seatcapacity',
+        'fueltype',
+        'boughtfrom',
+        'use',
+        'drivingarea',
+        'renewdate',
+
+
+
+
+
     ];
 
     /**
