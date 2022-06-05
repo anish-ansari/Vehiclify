@@ -35,6 +35,7 @@ class _ProfileState extends State<Profile>{
       });
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +50,7 @@ class _ProfileState extends State<Profile>{
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text('$name',
+            Text('Name: $name',
               style: TextStyle(
                   fontWeight: FontWeight.bold
               ),
@@ -85,8 +86,8 @@ class _ProfileState extends State<Profile>{
                 onPressed: (){
                   logout();
                 },
-                color: Colors.teal,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
+                color: Colors.grey,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
                 child: Text('Logout'),
               ),
             ),
