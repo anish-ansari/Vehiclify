@@ -34,7 +34,7 @@ class _LoginState extends State<Login> {
     return Scaffold(
       key: _scaffoldKey,
       body: Container(
-        color: Colors.teal,
+        color: Colors.grey,
         child: Stack(
           children: <Widget>[
             Positioned(
@@ -43,6 +43,9 @@ class _LoginState extends State<Login> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
+                    new Padding(padding: const EdgeInsets.all(20.0),
+                      child: new Text('Login',style: TextStyle(fontSize: 25.0,color: Colors.white),textAlign: TextAlign.center,),),
+                    SizedBox(height: 20.0),
                     Card(
                       elevation: 4.0,
                       color: Colors.white,
@@ -121,8 +124,8 @@ class _LoginState extends State<Login> {
                                       ),
                                     ),
                                   ),
-                                  color: Colors.teal,
-                                  disabledColor: Colors.grey,
+                                  color: Colors.grey,
+                                  disabledColor: Colors.blueGrey,
                                   shape: new RoundedRectangleBorder(
                                       borderRadius:
                                       new BorderRadius.circular(20.0)),

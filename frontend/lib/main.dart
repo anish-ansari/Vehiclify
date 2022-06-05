@@ -3,6 +3,7 @@ import 'package:vehiclify/pages/bottomnavbar.dart';
 import 'package:vehiclify/pages/homepage.dart';
 import 'package:vehiclify/pages/login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:vehiclify/pages/welcome.dart';
 
 void main(){
   runApp(
@@ -47,7 +48,7 @@ class _CheckAuthState extends State<CheckAuth> {
     if (isAuth) {
       child = MyBottomNavigationBar();
     } else {
-      child = Login();
+      child = Welcome();
     }
     return Scaffold(
       body: child,
