@@ -16,6 +16,26 @@ class _HomeState extends State<Home>{
   String dateofbirth;
   String address;
   String fathername;
+  String citizenshipno;
+  String licenseno;
+  String licenseoffice;
+  String dateofissue;
+  String dateofexpiry;
+  String category;
+  String companyname;
+  String model;
+  String manufacturedyear;
+  String cylinder;
+  String cc;
+  String chasisno;
+  String engineno;
+  String color;
+  String seatcapacity;
+  String fueltype;
+  String boughtfrom;
+  String use;
+  String drivingarea;
+  String renewdate;
   @override
   void initState(){
     _loadUserData();
@@ -33,6 +53,26 @@ class _HomeState extends State<Home>{
         dateofbirth = user['dateofbirth'];
         address = user['address'];
         fathername = user['fathername'];
+        citizenshipno = user['citizenshipno'];
+        licenseno = user['licenseno'];
+        licenseoffice = user['licenseoffice'];
+        dateofissue = user['dateofissue'];
+        dateofexpiry = user['dateofexpiry'];
+        category = user['category'];
+        companyname = user['companyname'];
+        model = user['model'];
+        manufacturedyear = user['manufacturedyear'];
+        cylinder = user['cylinder'];
+        cc = user['cc'];
+        color = user['color'];
+        chasisno = user['chasisno'];
+        engineno = user['engineno'];
+        seatcapacity = user['seatcapacity'];
+        fueltype = user['fueltype'];
+        boughtfrom = user['boughtfrom'];
+        use = user['use'];
+        drivingarea = user['drivingarea'];
+        renewdate = user['renewdate'];
       });
     }
   }
@@ -41,69 +81,29 @@ class _HomeState extends State<Home>{
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text('Homepage'),
+        title: Text('Vehiclify'),
         centerTitle: true,
         backgroundColor: Colors.grey,
       ),
-//      body: Padding(
-//        padding: const EdgeInsets.all(8.0),
-//        child: Column(
-//          crossAxisAlignment: CrossAxisAlignment.start,
-//          children: <Widget>[
-//            Text('$name',
-//              style: TextStyle(
-//                  fontWeight: FontWeight.bold
-//              ),
-//            ),
-//            Text('$email',
-//              style: TextStyle(
-//                  fontWeight: FontWeight.bold
-//              ),
-//            ),
-//            Text('$phone',
-//              style: TextStyle(
-//                  fontWeight: FontWeight.bold
-//              ),
-//            ),
-//            Text('$dateofbirth',
-//              style: TextStyle(
-//                  fontWeight: FontWeight.bold
-//              ),
-//            ),
-//            Text('$address',
-//              style: TextStyle(
-//                  fontWeight: FontWeight.bold
-//              ),
-//            ),
-//            Text('$fathername',
-//              style: TextStyle(
-//                  fontWeight: FontWeight.bold
-//              ),
-//            ),
-//            Center(
-//              child: RaisedButton(
-//                elevation: 10,
-//                onPressed: (){
-//                  logout();
-//                },
-//                color: Colors.teal,
-//                shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
-//                child: Text('Logout'),
-//              ),
-//            ),
-//          ],
-//        ),
-//      ),
 
     body: Center(
       child: Container(
         child: QrImage(
-          data: 'Name: $name\n\n'
-              'FatherName: $fathername\n\n'
+          data: 'License Information\n\n'
+              'License No: $licenseno\n\n'
+              'Licnese office: $licenseno\n\n'
+              'Issue Date: $dateofissue\n\n'
+              'Expiry Date: $dateofexpiry\n\n'
+              'Category:$category\n\n\n'
+              'Bluebook Information\n\n'
+              'Chasis no: $chasisno\n\n'
+              'Engine no: $engineno\n\n'
+              'Fuel Type: $fueltype\n\n'
+
 
               ,
           version: QrVersions.auto,
-          size: 250,
+          size: 200,
 
         ),
       ),
