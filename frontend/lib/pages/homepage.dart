@@ -91,10 +91,10 @@ class _HomeState extends State<Home>{
         child: QrImage(
           data: 'License Information\n\n'
               'License No: $licenseno\n\n'
-              'Licnese office: $licenseno\n\n'
+              'Licnese office: $licenseoffice\n\n'
               'Issue Date: $dateofissue\n\n'
               'Expiry Date: $dateofexpiry\n\n'
-              'Category:$category\n\n\n'
+              'Category: $category\n\n\n'
               'Bluebook Information\n\n'
               'Chasis no: $chasisno\n\n'
               'Engine no: $engineno\n\n'

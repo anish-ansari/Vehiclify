@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:vehiclify/pages/login.dart';
 import 'package:vehiclify/network_utils/api.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:vehiclify/pages/welcome.dart';
 class Profile extends StatefulWidget {
   @override
   _ProfileState createState() => _ProfileState();
@@ -369,7 +370,10 @@ class _ProfileState extends State<Profile>{
                 child: RaisedButton(
                   elevation: 10,
                   onPressed: (){
-                    logout();
+//                    logout();
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context)=>Welcome()));
                   },
                   color: Colors.grey,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
@@ -392,7 +396,7 @@ class _ProfileState extends State<Profile>{
       localStorage.remove('token');
       Navigator.push(
           context,
-          MaterialPageRoute(builder: (context)=>Login()));
+          MaterialPageRoute(builder: (context)=>Welcome()));
     }
   }
 }

@@ -46,7 +46,7 @@ class _RegisterState extends State<Register> {
   Widget build(BuildContext context) {
     return Material(
       child: Container(
-        color: Colors.teal,
+        color: Colors.white,
         child: Stack(
           children: <Widget>[
             Positioned(
@@ -56,13 +56,12 @@ class _RegisterState extends State<Register> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Card(
-                        elevation: 4.0,
-                        color: Colors.white,
-                        margin: EdgeInsets.only(left: 20, right: 20),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15)),
-                        child: Padding(
+                      SizedBox(height: 40.0),
+                      new Padding(padding: const EdgeInsets.all(20.0),
+                        child: new Text('Register',style: TextStyle(fontSize: 25.0,color: Colors.grey),textAlign: TextAlign.center,),),
+                      SizedBox(height: 20.0),
+
+                         Padding(
                           padding: const EdgeInsets.all(10.0),
                           child: Form(
                             
@@ -70,6 +69,16 @@ class _RegisterState extends State<Register> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
+                                SizedBox(
+                                  height: 20,
+                                ),
+
+                                Center(
+                                  child: Text("Personal Information",style: TextStyle(fontSize: 20, color: Colors.grey,),),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
                                 TextFormField(
                                   style: TextStyle(color: Color(0xFF000000)),
                                   cursorColor: Color(0xFF9b9b9b),
@@ -147,7 +156,7 @@ class _RegisterState extends State<Register> {
                                   keyboardType: TextInputType.text,
                                   decoration: InputDecoration(
                                     prefixIcon: Icon(
-                                      Icons.insert_emoticon,
+                                      Icons.calendar_today,
                                       color: Colors.grey,
                                     ),
                                     hintText: "Date of birth",
@@ -170,7 +179,7 @@ class _RegisterState extends State<Register> {
                                   keyboardType: TextInputType.text,
                                   decoration: InputDecoration(
                                     prefixIcon: Icon(
-                                      Icons.insert_emoticon,
+                                      Icons.account_balance,
                                       color: Colors.grey,
                                     ),
                                     hintText: "Address",
@@ -193,7 +202,7 @@ class _RegisterState extends State<Register> {
                                   keyboardType: TextInputType.text,
                                   decoration: InputDecoration(
                                     prefixIcon: Icon(
-                                      Icons.insert_emoticon,
+                                      Icons.face,
                                       color: Colors.grey,
                                     ),
                                     hintText: "Father Name",
@@ -216,7 +225,7 @@ class _RegisterState extends State<Register> {
                                   keyboardType: TextInputType.text,
                                   decoration: InputDecoration(
                                     prefixIcon: Icon(
-                                      Icons.insert_emoticon,
+                                      Icons.credit_card,
                                       color: Colors.grey,
                                     ),
                                     hintText: "Citizenship No",
@@ -257,13 +266,24 @@ class _RegisterState extends State<Register> {
                                     return null;
                                   },
                                 ),
+
+                                SizedBox(
+                                  height: 20,
+                                ),
+
+                                Center(
+                                  child: Text("License Information",style: TextStyle(fontSize: 20, color: Colors.grey,),),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
                                 TextFormField(
                                   style: TextStyle(color: Color(0xFF000000)),
                                   cursorColor: Color(0xFF9b9b9b),
                                   keyboardType: TextInputType.text,
                                   decoration: InputDecoration(
                                     prefixIcon: Icon(
-                                      Icons.insert_emoticon,
+                                      Icons.calendar_view_day,
                                       color: Colors.grey,
                                     ),
                                     hintText: "License No",
@@ -286,7 +306,7 @@ class _RegisterState extends State<Register> {
                                   keyboardType: TextInputType.text,
                                   decoration: InputDecoration(
                                     prefixIcon: Icon(
-                                      Icons.insert_emoticon,
+                                      Icons.business,
                                       color: Colors.grey,
                                     ),
                                     hintText: "License office",
@@ -309,7 +329,7 @@ class _RegisterState extends State<Register> {
                                   keyboardType: TextInputType.text,
                                   decoration: InputDecoration(
                                     prefixIcon: Icon(
-                                      Icons.insert_emoticon,
+                                      Icons.calendar_today,
                                       color: Colors.grey,
                                     ),
                                     hintText: "License issue date",
@@ -332,7 +352,7 @@ class _RegisterState extends State<Register> {
                                   keyboardType: TextInputType.text,
                                   decoration: InputDecoration(
                                     prefixIcon: Icon(
-                                      Icons.insert_emoticon,
+                                      Icons.calendar_today,
                                       color: Colors.grey,
                                     ),
                                     hintText: "License expiry date",
@@ -355,7 +375,7 @@ class _RegisterState extends State<Register> {
                                   keyboardType: TextInputType.text,
                                   decoration: InputDecoration(
                                     prefixIcon: Icon(
-                                      Icons.insert_emoticon,
+                                      Icons.category,
                                       color: Colors.grey,
                                     ),
                                     hintText: "Category",
@@ -372,13 +392,23 @@ class _RegisterState extends State<Register> {
                                     return null;
                                   },
                                 ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+
+                                Center(
+                                  child: Text("Bluebook Information",style: TextStyle(fontSize: 20 ,color: Colors.grey ),),
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
                                 TextFormField(
                                   style: TextStyle(color: Color(0xFF000000)),
                                   cursorColor: Color(0xFF9b9b9b),
                                   keyboardType: TextInputType.text,
                                   decoration: InputDecoration(
                                     prefixIcon: Icon(
-                                      Icons.insert_emoticon,
+                                      Icons.directions_car,
                                       color: Colors.grey,
                                     ),
                                     hintText: "Car Company Name",
@@ -401,7 +431,7 @@ class _RegisterState extends State<Register> {
                                   keyboardType: TextInputType.text,
                                   decoration: InputDecoration(
                                     prefixIcon: Icon(
-                                      Icons.insert_emoticon,
+                                      Icons.local_car_wash,
                                       color: Colors.grey,
                                     ),
                                     hintText: "Car model",
@@ -424,7 +454,7 @@ class _RegisterState extends State<Register> {
                                   keyboardType: TextInputType.text,
                                   decoration: InputDecoration(
                                     prefixIcon: Icon(
-                                      Icons.insert_emoticon,
+                                      Icons.calendar_today,
                                       color: Colors.grey,
                                     ),
                                     hintText: "Car Maufacture year",
@@ -447,7 +477,7 @@ class _RegisterState extends State<Register> {
                                   keyboardType: TextInputType.text,
                                   decoration: InputDecoration(
                                     prefixIcon: Icon(
-                                      Icons.insert_emoticon,
+                                      Icons.dock,
                                       color: Colors.grey,
                                     ),
                                     hintText: "Cylinder",
@@ -470,7 +500,7 @@ class _RegisterState extends State<Register> {
                                   keyboardType: TextInputType.text,
                                   decoration: InputDecoration(
                                     prefixIcon: Icon(
-                                      Icons.insert_emoticon,
+                                      Icons.settings_cell,
                                       color: Colors.grey,
                                     ),
                                     hintText: "CC",
@@ -493,7 +523,7 @@ class _RegisterState extends State<Register> {
                                   keyboardType: TextInputType.text,
                                   decoration: InputDecoration(
                                     prefixIcon: Icon(
-                                      Icons.insert_emoticon,
+                                      Icons.subway,
                                       color: Colors.grey,
                                     ),
                                     hintText: "Chasis No",
@@ -516,7 +546,7 @@ class _RegisterState extends State<Register> {
                                   keyboardType: TextInputType.text,
                                   decoration: InputDecoration(
                                     prefixIcon: Icon(
-                                      Icons.insert_emoticon,
+                                      Icons.settings,
                                       color: Colors.grey,
                                     ),
                                     hintText: "Engine No",
@@ -539,7 +569,7 @@ class _RegisterState extends State<Register> {
                                   keyboardType: TextInputType.text,
                                   decoration: InputDecoration(
                                     prefixIcon: Icon(
-                                      Icons.insert_emoticon,
+                                      Icons.color_lens,
                                       color: Colors.grey,
                                     ),
                                     hintText: "Color",
@@ -562,7 +592,7 @@ class _RegisterState extends State<Register> {
                                   keyboardType: TextInputType.text,
                                   decoration: InputDecoration(
                                     prefixIcon: Icon(
-                                      Icons.insert_emoticon,
+                                      Icons.airline_seat_recline_normal,
                                       color: Colors.grey,
                                     ),
                                     hintText: "Seat Capacity",
@@ -585,7 +615,7 @@ class _RegisterState extends State<Register> {
                                   keyboardType: TextInputType.text,
                                   decoration: InputDecoration(
                                     prefixIcon: Icon(
-                                      Icons.insert_emoticon,
+                                      Icons.local_gas_station,
                                       color: Colors.grey,
                                     ),
                                     hintText: "Fule Type",
@@ -608,7 +638,7 @@ class _RegisterState extends State<Register> {
                                   keyboardType: TextInputType.text,
                                   decoration: InputDecoration(
                                     prefixIcon: Icon(
-                                      Icons.insert_emoticon,
+                                      Icons.people,
                                       color: Colors.grey,
                                     ),
                                     hintText: "Bought from",
@@ -631,7 +661,7 @@ class _RegisterState extends State<Register> {
                                   keyboardType: TextInputType.text,
                                   decoration: InputDecoration(
                                     prefixIcon: Icon(
-                                      Icons.insert_emoticon,
+                                      Icons.directions,
                                       color: Colors.grey,
                                     ),
                                     hintText: "Use",
@@ -654,7 +684,7 @@ class _RegisterState extends State<Register> {
                                   keyboardType: TextInputType.text,
                                   decoration: InputDecoration(
                                     prefixIcon: Icon(
-                                      Icons.insert_emoticon,
+                                      Icons.location_city,
                                       color: Colors.grey,
                                     ),
                                     hintText: "Driving area",
@@ -677,7 +707,7 @@ class _RegisterState extends State<Register> {
                                   keyboardType: TextInputType.text,
                                   decoration: InputDecoration(
                                     prefixIcon: Icon(
-                                      Icons.insert_emoticon,
+                                      Icons.date_range,
                                       color: Colors.grey,
                                     ),
                                     hintText: "Renewed Date",
@@ -711,8 +741,8 @@ class _RegisterState extends State<Register> {
                                         ),
                                       ),
                                     ),
-                                    color: Colors.teal,
-                                    disabledColor: Colors.grey,
+                                    color: Colors.grey,
+                                    disabledColor: Colors.blueGrey,
                                     shape: new RoundedRectangleBorder(
                                         borderRadius:
                                         new BorderRadius.circular(20.0)),
@@ -727,10 +757,10 @@ class _RegisterState extends State<Register> {
                             ),
                           ),
                         ),
-                      ),
+
 
                       Padding(
-                        padding: const EdgeInsets.only(top: 20),
+                        padding: const EdgeInsets.only(top: 20 , bottom: 20),
                         child: InkWell(
                           onTap: () {
                             Navigator.push(
@@ -741,7 +771,7 @@ class _RegisterState extends State<Register> {
                           child: Text(
                             'Already Have an Account',
                             style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.grey,
                               fontSize: 15.0,
                               decoration: TextDecoration.none,
                               fontWeight: FontWeight.normal,

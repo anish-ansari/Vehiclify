@@ -17,18 +17,19 @@ class _WelcomeState extends State<Welcome> {
 //        title: Text('Sign in/up'),
 //        backgroundColor: Colors.brown[400],
 //      ),
-      backgroundColor: Colors.white70,
+      backgroundColor: Colors.white,
       body: Column(
         mainAxisAlignment:MainAxisAlignment.center ,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.all(0.0),
-            child: Image.asset("assets/images/phone.png"),
+            child: Image.asset("assets/images/phone.png",height: MediaQuery.of(context).size.height * 0.5,
+        ),
           ),
-          new Padding(padding: const EdgeInsets.all(20.0),
+          new Padding(padding: const EdgeInsets.only(top: 30,bottom: 30),
             child: new Text('Vehiclify',style: TextStyle(fontSize: 25,color: Colors.grey),textAlign: TextAlign.center,),),
-          SizedBox(height: 20.0),
+          SizedBox(height: 30.0),
 
           SizedBox(
             height: 50.0,
