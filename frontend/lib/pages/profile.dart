@@ -220,7 +220,16 @@ class _ProfileState extends State<Profile>{
                       ListTile(
                         leading: Icon(Icons.calendar_today),
                         title: Text("$dateofexpiry"),
-                      )
+                      ),
+                      Divider(
+                        height: 0.6,
+                        color: Colors.black87,
+                      ),
+                      ListTile(
+                        leading: Icon(Icons.category),
+                        title: Text("$category"),
+                      ),
+
                     ],
                   ),
                 ),
@@ -246,14 +255,6 @@ class _ProfileState extends State<Profile>{
                   child: Column(
                     children: [
                       //row for each deatails
-                      ListTile(
-                        leading: Icon(Icons.category),
-                        title: Text("$category"),
-                      ),
-                      Divider(
-                        height: 0.6,
-                        color: Colors.black87,
-                      ),
                       ListTile(
                         leading: Icon(Icons.business),
                         title: Text("$companyname"),

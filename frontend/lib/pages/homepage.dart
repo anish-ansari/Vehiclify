@@ -96,9 +96,16 @@ class _HomeState extends State<Home>{
               'Expiry Date: $dateofexpiry\n\n'
               'Category: $category\n\n\n'
               'Bluebook Information\n\n'
+              'Company Name: $companyname\n\n'
+              'Model: $model\n\n'
+              'Manufactured Year: $manufacturedyear\n\n'
+              'Cylinder: $cylinder\n\n'
+              'CC: $cc\n\n'
               'Chasis no: $chasisno\n\n'
               'Engine no: $engineno\n\n'
+              'Seat Capacity: $seatcapacity\n\n'
               'Fuel Type: $fueltype\n\n'
+              'Renew Date: $renewdate\n\n'
 
 
               ,
