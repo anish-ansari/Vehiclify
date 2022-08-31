@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+// use Laravel\Passport\HasApiTokens;  check this error due to version error app token not working due to this
+
 
 class User extends Authenticatable
 {

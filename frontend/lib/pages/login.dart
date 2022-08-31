@@ -35,7 +35,7 @@ class _LoginState extends State<Login> {
       resizeToAvoidBottomInset: false,
       key: _scaffoldKey,
       body: Container(
-        color: Colors.grey,
+        color: Colors.lightBlue,
         child: Stack(
           children: <Widget>[
             Positioned(
@@ -125,7 +125,7 @@ class _LoginState extends State<Login> {
                                       ),
                                     ),
                                   ),
-                                  color: Colors.grey,
+                                  color: Colors.lightBlue,
                                   disabledColor: Colors.blueGrey,
                                   shape: new RoundedRectangleBorder(
                                       borderRadius:

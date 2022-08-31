@@ -28,7 +28,7 @@ class _WelcomeState extends State<Welcome> {
         ),
           ),
           new Padding(padding: const EdgeInsets.only(top: 30,bottom: 30),
-            child: new Text('Vehiclify',style: TextStyle(fontSize: 25,color: Colors.grey),textAlign: TextAlign.center,),),
+            child: new Text('Vehiclify',style: TextStyle(fontSize: 25,color: Colors.lightBlue),textAlign: TextAlign.center,),),
           SizedBox(height: 30.0),
 
           SizedBox(
@@ -40,8 +40,8 @@ class _WelcomeState extends State<Welcome> {
               onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>Login(),fullscreenDialog: true));
               },
-              color: Colors.grey,
-              child: Text('Get Started',style: TextStyle(color: Colors.white70,fontSize: 20.0),),
+              color: Colors.lightBlue,
+              child: Text('Get Started',style: TextStyle(color: Colors.white,fontSize: 20.0),),
 
             ),
           ),

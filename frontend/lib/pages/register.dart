@@ -741,7 +741,7 @@ class _RegisterState extends State<Register> {
                                         ),
                                       ),
                                     ),
-                                    color: Colors.grey,
+                                    color: Colors.lightBlue,
                                     disabledColor: Colors.blueGrey,
                                     shape: new RoundedRectangleBorder(
                                         borderRadius:
