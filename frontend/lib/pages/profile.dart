@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:vehiclify/pages/login.dart';
 import 'package:vehiclify/network_utils/api.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vehiclify/pages/welcome.dart';
@@ -85,7 +84,7 @@ class _ProfileState extends State<Profile>{
         automaticallyImplyLeading: false,
         title: Text('Profile'),
         centerTitle: true,
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.lightBlue,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -376,9 +375,9 @@ class _ProfileState extends State<Profile>{
                         context,
                         MaterialPageRoute(builder: (context)=>Welcome()));
                   },
-                  color: Colors.grey,
+                  color: Colors.lightBlue,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
-                  child: Text('Logout'),
+                  child: Text('Logout',style: TextStyle(color: Colors.white),),
                 ),
               ),
             ],

@@ -23,3 +23,12 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('/register', 'App\Http\Controllers\UsersController@register');
     Route::get('/logout', 'App\Http\Controllers\UsersController@logout')->middleware('auth:api');
 });
+
+
+Route::get('fules', 'App\Http\Controllers\FuelpriceController@index');
+
+Route::get('insurances', 'App\Http\Controllers\InsuranceController@index');
+
+Route::get('caraccesories', 'App\Http\Controllers\CarAccesorieController@index');
+
+Route::get('bikeaccesories', 'App\Http\Controllers\BikeAccesorieController@index');

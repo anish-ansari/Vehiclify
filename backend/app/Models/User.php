@@ -44,7 +44,9 @@ class User extends Authenticatable
         'boughtfrom',
         'use',
         'drivingarea',
+        'image',
         'renewdate',
+        
 
 
 

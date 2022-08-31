@@ -63,6 +63,7 @@ class UsersController extends Controller
             'boughtfrom' => 'required',
             'use' => 'required',
             'drivingarea' => 'required',
+            'image'=>'required',
             'renewdate' => 'required',
 
             
@@ -77,6 +78,7 @@ class UsersController extends Controller
         $input['password'] = bcrypt($input['password']);
         $user = User::create($input);
         $success['token'] = $user->createToken('appToken')->accessToken;
+        
         return response()->json([
           'success' => true,
           'token' => $success,

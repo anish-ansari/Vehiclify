@@ -135,6 +135,59 @@
 
             </div>
         </li>
+        
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Fuel</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+
+                <a class="dropdown-item" href="{{ URL::to('create-fuel') }}"> Add Fuel</a>
+                <a class="dropdown-item" href="{{ URL::to('all-fules') }}"> All Fules </a>
+
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Insurance</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+
+                <a class="dropdown-item" href="{{ URL::to('create-insurance') }}"> Add Insurance Compnay</a>
+                <a class="dropdown-item" href="{{ URL::to('all-insurances') }}"> All Insurance Company </a>
+
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Car Accesories</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+
+                <a class="dropdown-item" href="{{ URL::to('create-caraccesorie') }}"> Add Car Accesorie Compnay</a>
+                <a class="dropdown-item" href="{{ URL::to('all-caraccesories') }}"> All Car Accesorie Company </a>
+
+            </div>
+        </li>
+
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Bike Accesories</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+
+                <a class="dropdown-item" href="{{ URL::to('create-bikeaccesorie') }}"> Add Bike Accesorie Compnay</a>
+                <a class="dropdown-item" href="{{ URL::to('all-bikeaccesories') }}"> All Bike Accesorie Company </a>
+
+            </div>
+        </li>
 
        
     </ul>

@@ -45,6 +45,7 @@ class CreateUsersTable extends Migration
             $table->string('boughtfrom');
             $table->string('use');
             $table->string('drivingarea');
+            $table->string('image')->nullable();
             $table->string('renewdate');
             $table->rememberToken();
             $table->timestamps();
