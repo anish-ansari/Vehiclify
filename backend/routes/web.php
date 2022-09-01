@@ -55,11 +55,40 @@ Route::post('update-caraccesorie/{id}','App\Http\Controllers\Web\CarAccesorieCon
 Route::get('delete-caraccesorie/{id}','App\Http\Controllers\Web\CarAccesorieContro@destroy');
 //car accesorie end
 
-// car accesorie
+// bike accesorie
 Route::get('create-bikeaccesorie','App\Http\Controllers\Web\BikeAccesorieContro@create');
 Route::post('post-bikeaccesorie-form','App\Http\Controllers\Web\BikeAccesorieContro@store');
 Route::get('all-bikeaccesories','App\Http\Controllers\Web\BikeAccesorieContro@index');
 Route::get('edit-bikeaccesorie/{id}','App\Http\Controllers\Web\BikeAccesorieContro@edit');
 Route::post('update-bikeaccesorie/{id}','App\Http\Controllers\Web\BikeAccesorieContro@update');
 Route::get('delete-bikeaccesorie/{id}','App\Http\Controllers\Web\BikeAccesorieContro@destroy');
+//bike accesorie end
+
+//dotm news
+
+Route::get('create-dotm','App\Http\Controllers\Web\DotmContro@create');
+Route::post('post-dotm-form','App\Http\Controllers\Web\DotmContro@store');
+Route::get('all-dotms','App\Http\Controllers\Web\DotmContro@index');
+Route::get('edit-dotm/{id}','App\Http\Controllers\Web\DotmContro@edit');
+Route::post('update-dotm/{id}','App\Http\Controllers\Web\DotmContro@update');
+Route::get('delete-dotm/{id}','App\Http\Controllers\Web\DotmContro@destroy');
 //car accesorie end
+
+// car news
+Route::get('create-car','App\Http\Controllers\Web\CarContro@create');
+Route::post('post-car-form','App\Http\Controllers\Web\CarContro@store');
+Route::get('all-cars','App\Http\Controllers\Web\CarContro@index');
+Route::get('edit-car/{id}','App\Http\Controllers\Web\CarContro@edit');
+Route::post('update-car/{id}','App\Http\Controllers\Web\CarContro@update');
+Route::get('delete-car/{id}','App\Http\Controllers\Web\CarContro@destroy');
+//car accesorie end
+
+// car news
+Route::get('create-bike','App\Http\Controllers\Web\BikeContro@create');
+Route::post('post-bike-form','App\Http\Controllers\Web\BikeContro@store');
+Route::get('all-bikes','App\Http\Controllers\Web\BikeContro@index');
+Route::get('edit-bike/{id}','App\Http\Controllers\Web\BikeContro@edit');
+Route::post('update-bike/{id}','App\Http\Controllers\Web\BikeContro@update');
+Route::get('delete-bike/{id}','App\Http\Controllers\Web\BikeContro@destroy');
+//car accesorie end
+

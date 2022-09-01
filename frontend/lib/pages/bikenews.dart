@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:vehiclify/model/fuel.dart';
+import 'package:vehiclify/model/bike.dart';
 import 'dart:convert';
 import 'package:vehiclify/network_utils/ipaddress.dart';
 import 'package:vehiclify/pages/bottomnavbar.dart';
@@ -17,15 +17,15 @@ class _BikeNewsPageState extends State<BikeNewsPage> {
 
   bool isLoading=false;
 
-  String url = "http://${Server.ipAddress}/vehiclify/public/api/fules";
+  String url = "http://${Server.ipAddress}/vehiclify/public/api/bikes";
 
 //  String url = "http://${Server.ipAddress}/public/api/rules";
 
-  Future<List<Fuel>> fetchRule() async {
+  Future<List<Bike>> fetchRule() async {
     try {
       final response = await http.get(url);
       if (response.statusCode == 200) {
-        List<Fuel> rule = parseRequestRules(response.body);
+        List<Bike> rule = parseRequestRules(response.body);
         return rule;
       } else {
         throw Exception("error");
@@ -35,16 +35,16 @@ class _BikeNewsPageState extends State<BikeNewsPage> {
     }
   }
 
-  List<Fuel> parseRequestRules(String responseBody) {
+  List<Bike> parseRequestRules(String responseBody) {
     final parsed = json.decode(responseBody).cast<Map<String, dynamic>>();
     {
       return parsed
-          .map<Fuel>((json) => Fuel.fromJson(json))
+          .map<Bike>((json) => Bike.fromJson(json))
           .toList();
     }
   }
 
-  List<Fuel> rule = List();
+  List<Bike> rule = List();
 
   @override
   void initState() {
@@ -89,46 +89,91 @@ class _BikeNewsPageState extends State<BikeNewsPage> {
         )
             : RefreshIndicator(
           onRefresh: _getData,
-          child: rule.isEmpty ? Center(child: Text("No fuel detail found")) : Padding(
-            padding: const EdgeInsets.only(left: 25.0),
-            child: Container(
-              height: 150.0,
-              child: ListView.builder (
-                scrollDirection: Axis.horizontal,
-
-                itemCount: rule == null ? 0 : rule.length,
-                itemBuilder: (BuildContext context, index) {
-//              return Column(
-//                children: <Widget>[
-//                  Card(
-//                    elevation: 5,
-//                    color: Colors.white,
-//                    child: ListTile(
-//                      title: Text("${rule[index].fuelname} : Rs ${rule[index].price}"),
-//
-//
-//                    ),
-//                  ),
-//                ],
-//              );
-                  return Container(
-                    width: 150.0,
+          child: rule.isEmpty ? Center(child: Text("No vendor found")) : ListView.builder (
+            itemCount: rule == null ? 0 : rule.length,
+            itemBuilder: (BuildContext context, index) {
+              return Column(
+                children: <Widget>[
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          new MaterialPageRoute(
+                              builder: (context) =>
+                                  BikeDetail(rule[index])));
+                    },
                     child: Card(
-                      child: Column(
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.all(30.0),
-                            child: Text("${rule[index].fuelname} \n\n Rs ${rule[index].price}",style: TextStyle(fontSize: 20),),
-                          ),
-                        ],
+                      elevation: 5,
+                      color: Colors.white,
+                      child: ListTile(
+                        title: Text("•  ${rule[index].btitle}"),
+
+
                       ),
                     ),
-                  );
-                },
+                  ),
+                ],
+              );
+            },
+          ),
+        )
+    );
+  }
+}
+
+
+
+class BikeDetail extends StatelessWidget {
+  final Bike book;
+
+  BikeDetail(this.book);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.lightBlue,
+        centerTitle: true,
+        title: Row(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              "${book.btitle}",
+            ),
+          ],
+        ),
+      ),
+      backgroundColor: Colors.white,
+      body: ListView(
+        children: <Widget>[
+          Container(
+            height: 300,
+            child: GridTile(
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 25.0),
+                child: Container(
+                  child: Image.network(book.bimage),
+                ),
               ),
             ),
           ),
-        )
+          Divider(),
+          Padding(
+            padding: const EdgeInsets.only(left:10.0),
+            child: ListTile(
+              title: Text('Description',style: TextStyle(
+                  fontSize: 20.0,fontWeight: FontWeight.w600
+              ),),
+              subtitle: Padding(
+                padding: const EdgeInsets.only(top:8.0),
+                child: Text(book.bdescription),
+              ),
+            ),
+          ),
+        ],
+      ),
+
     );
   }
 }

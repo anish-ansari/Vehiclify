@@ -31,78 +31,80 @@ class _MileageState extends State<Mileage> {
         centerTitle: true,
         backgroundColor: Colors.lightBlue,
       ),
-        body: Center(
-            child: Container(
-                child: Column(
-                  children: <Widget>[
-                    Container(
-                        padding: EdgeInsets.all(20.0),
-                        child: TextField(
-                          controller: _fuelrateperliter,
-                          decoration: InputDecoration(
-                              labelText: "Fuel Rate Per liter"
+        body: SingleChildScrollView(
+          child: Center(
+              child: Container(
+                  child: Column(
+                    children: <Widget>[
+                      Container(
+                          padding: EdgeInsets.all(20.0),
+                          child: TextField(
+                            controller: _fuelrateperliter,
+                            decoration: InputDecoration(
+                                labelText: "Fuel Rate Per liter"
+                            ),
+                            keyboardType: TextInputType.number,
+
+                          )
+                      ),
+
+                      Container(
+                          padding: EdgeInsets.all(20.0),
+                          child: TextField(
+                            controller: _totalfuelfilled,
+                            decoration: InputDecoration(
+                                labelText: "Total Fuel Filled amount"
+                            ),
+                            keyboardType: TextInputType.number,
+                          )
+                      ),
+
+                      Container(
+                          padding: EdgeInsets.all(20.0),
+                          child: TextField(
+                            controller: _totaltravelkm,
+                            decoration: InputDecoration(
+                                labelText: "Total Fuel Filled amount"
+                            ),
+                            keyboardType: TextInputType.number,
+                          )
+                      ),
+
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          Flexible(
+                              fit: FlexFit.loose,
+                              child: FlatButton(
+                                  onPressed: _handleCalculation,
+                                  child: Text("Calculate"),
+                                  color: Colors.lightBlue,
+                                  textColor: Colors.white,
+                                  padding: EdgeInsets.only(top: 10.0, bottom: 10.0, left: 24.0, right: 24.0)
+                              )
                           ),
-                          keyboardType: TextInputType.number,
-
-                        )
-                    ),
-
-                    Container(
-                        padding: EdgeInsets.all(20.0),
-                        child: TextField(
-                          controller: _totalfuelfilled,
-                          decoration: InputDecoration(
-                              labelText: "Total Fuel Filled amount"
+                          Flexible(
+                              fit: FlexFit.loose,
+                              child: FlatButton(
+                                  onPressed: _clear,
+                                  child: Text("Clear"),
+                                  color: Colors.lightBlue,
+                                  textColor: Colors.white,
+                                  padding: EdgeInsets.only(top: 10.0, bottom: 10.0, left: 24.0, right: 24.0)
+                              )
                           ),
-                          keyboardType: TextInputType.number,
-                        )
-                    ),
+                        ],
+                      ),
 
-                    Container(
-                        padding: EdgeInsets.all(20.0),
-                        child: TextField(
-                          controller: _totaltravelkm,
-                          decoration: InputDecoration(
-                              labelText: "Total Fuel Filled amount"
-                          ),
-                          keyboardType: TextInputType.number,
-                        )
-                    ),
+                      Padding(padding: EdgeInsets.only(top: 10),),
 
+                      emiResultsWidget(_totalfuel,_milegageperkm,_perkmcost)
 
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: <Widget>[
-                        Flexible(
-                            fit: FlexFit.loose,
-                            child: FlatButton(
-                                onPressed: _handleCalculation,
-                                child: Text("Calculate"),
-                                color: Colors.lightBlue,
-                                textColor: Colors.white,
-                                padding: EdgeInsets.only(top: 10.0, bottom: 10.0, left: 24.0, right: 24.0)
-                            )
-                        ),
-                        Flexible(
-                            fit: FlexFit.loose,
-                            child: FlatButton(
-                                onPressed: _clear,
-                                child: Text("Clear"),
-                                color: Colors.lightBlue,
-                                textColor: Colors.white,
-                                padding: EdgeInsets.only(top: 10.0, bottom: 10.0, left: 24.0, right: 24.0)
-                            )
-                        ),
-                      ],
-                    ),
-
-                    Padding(padding: EdgeInsets.only(top: 10),),
-
-                    emiResultsWidget(_totalfuel,_milegageperkm,_perkmcost)
-
-                  ],
-                )
-            )
+                    ],
+                  )
+              )
+          ),
         )
     );
   }
@@ -152,7 +154,7 @@ class _MileageState extends State<Mileage> {
     }
     return
          Container(
-            padding: EdgeInsets.only(left: 50,right: 50,top:10),
+            padding: EdgeInsets.only(left: 20,right: 20,top:10),
             child: canShow ? Center(
               child: Card(
                 elevation: 5,

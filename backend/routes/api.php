@@ -32,3 +32,9 @@ Route::get('insurances', 'App\Http\Controllers\InsuranceController@index');
 Route::get('caraccesories', 'App\Http\Controllers\CarAccesorieController@index');
 
 Route::get('bikeaccesories', 'App\Http\Controllers\BikeAccesorieController@index');
+
+Route::get('dotms', 'App\Http\Controllers\DotmController@index');
+
+Route::get('cars', 'App\Http\Controllers\CarController@index');
+
+Route::get('bikes', 'App\Http\Controllers\BikeController@index');

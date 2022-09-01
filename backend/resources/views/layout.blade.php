@@ -189,6 +189,46 @@
             </div>
         </li>
 
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Dotm News</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+
+                <a class="dropdown-item" href="{{ URL::to('create-dotm') }}"> Add Dotm News</a>
+                <a class="dropdown-item" href="{{ URL::to('all-dotms') }}"> All Dotm News</a>
+
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Car News</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+
+                <a class="dropdown-item" href="{{ URL::to('create-car') }}"> Add Car News</a>
+                <a class="dropdown-item" href="{{ URL::to('all-cars') }}"> All Car News</a>
+
+            </div>
+        </li>
+
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Bike News</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+
+                <a class="dropdown-item" href="{{ URL::to('create-bike') }}"> Add Bike News</a>
+                <a class="dropdown-item" href="{{ URL::to('all-bikes') }}"> All Bike News</a>
+
+            </div>
+        </li>
+
        
     </ul>
 
