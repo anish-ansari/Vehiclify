@@ -1,19 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:vehiclify/pages/bottomnavbar.dart';
-import 'package:vehiclify/pages/homepage.dart';
-import 'package:vehiclify/pages/login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vehiclify/pages/welcome.dart';
 
-void main(){
-  runApp(
+//void main() {
+//
+//  runApp(
+//    MaterialApp(
+//      debugShowCheckedModeBanner: false,
+//      home: CheckAuth(),
+//
+//    ),
+//  );
+//}
 
-    MaterialApp(
+void main() {
+
+  runApp(
+//    MaterialApp(
+//      debugShowCheckedModeBanner: false,
+//      home: CheckAuth(),
+//
+//    ),
+      App()
+  );
+}
+
+
+class App extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: CheckAuth(),
-
-    ),
-  );
+    );
+  }
 }
 
 

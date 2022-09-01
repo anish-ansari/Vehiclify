@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:vehiclify/model/db_model.dart';
+import 'package:vehiclify/model/todo_model.dart';
 
 
 class CarMarket extends StatefulWidget {
@@ -15,6 +17,22 @@ class _CarMarketState extends State<CarMarket> {
         centerTitle: true,
         backgroundColor: Colors.lightBlue,
       ),
+      body: RaisedButton(
+        child: Text('insert', style: TextStyle(fontSize: 20),),
+        onPressed: () {_insert();},
+      ),
     );
+  }
+
+  _insert() async{
+      var db = DatabaseConnect();
+
+  await db.insertTodo(Todo(
+      id: 1,
+      title: 'This is sample todo',
+      creationDate: DateTime.now(),
+      isChecked: false
+  ));
+
   }
 }
