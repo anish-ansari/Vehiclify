@@ -237,7 +237,7 @@
             <div class="dropdown-menu" aria-labelledby="pagesDropdown">
 
                 <a class="dropdown-item" href="{{ URL::to('create-carcategory') }}"> Add Car Category</a>
-                <a class="dropdown-item" href="{{ URL::to('all-carcategorys') }}"> All Car Category News</a>
+                <a class="dropdown-item" href="{{ URL::to('all-carcategorys') }}"> All Car Category </a>
 
             </div>
         </li>
@@ -252,6 +252,32 @@
 
                 <a class="dropdown-item" href="{{ URL::to('create-carservice') }}"> Add Car Service</a>
                 <a class="dropdown-item" href="{{ URL::to('all-carservices') }}"> All Car Service</a>
+
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Bike Category</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+
+                <a class="dropdown-item" href="{{ URL::to('create-bikecategory') }}"> Add Bike Category</a>
+                <a class="dropdown-item" href="{{ URL::to('all-bikecategorys') }}"> All Bike Category</a>
+
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Bike Service </span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+
+                <a class="dropdown-item" href="{{ URL::to('create-bikeservice') }}"> Add Bike Service</a>
+                <a class="dropdown-item" href="{{ URL::to('all-bikeservices') }}"> All Bike Service</a>
 
             </div>
         </li>

@@ -8,6 +8,7 @@ import 'package:vehiclify/pages/bikenews.dart';
 import 'package:vehiclify/pages/bluebook.dart';
 import 'package:vehiclify/pages/caraccesories.dart';
 import 'package:vehiclify/pages/carnews.dart';
+import 'package:vehiclify/pages/dealer.dart';
 import 'package:vehiclify/pages/dotmnews.dart';
 import 'package:vehiclify/pages/emi.dart';
 import 'package:vehiclify/pages/insurance.dart';
@@ -578,7 +579,7 @@ class _HomeState extends State<Home>{
                         ),
                         InkWell(
                           onTap: () {
-                            Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context)=>new License()));
+                            Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context)=>new Dealer()));
                           },
                           child: Card(
                             elevation: 5,

@@ -109,4 +109,23 @@ Route::get('all-carservices','App\Http\Controllers\Web\CarServiceContro@index');
 Route::get('edit-carservice/{id}','App\Http\Controllers\Web\CarServiceContro@edit');
 Route::post('update-carservice/{id}','App\Http\Controllers\Web\CarServiceContro@update');
 Route::get('delete-carservice/{id}','App\Http\Controllers\Web\CarServiceContro@destroy');
-//car  category end 
+//car  service end 
+
+//bike category
+Route::get('create-bikecategory','App\Http\Controllers\Web\BikeCategoryContro@create');
+Route::post('post-bikecategory-form','App\Http\Controllers\Web\BikeCategoryContro@store');
+Route::get('all-bikecategorys','App\Http\Controllers\Web\BikeCategoryContro@index');
+Route::get('edit-bikecategory/{id}','App\Http\Controllers\Web\BikeCategoryContro@edit');
+Route::post('update-bikecategory/{id}','App\Http\Controllers\Web\BikeCategoryContro@update');
+Route::get('delete-bikecategory/{id}','App\Http\Controllers\Web\BikeCategoryContro@destroy');
+//bike category end 
+
+//bike service
+Route::get('create-bikeservice','App\Http\Controllers\Web\BikeServiceContro@create');
+Route::post('post-bikeservice-form','App\Http\Controllers\Web\BikeServiceContro@store');
+Route::get('all-bikeservices','App\Http\Controllers\Web\BikeServiceContro@index');
+Route::get('edit-bikeservice/{id}','App\Http\Controllers\Web\BikeServiceContro@edit');
+Route::post('update-bikeservice/{id}','App\Http\Controllers\Web\BikeServiceContro@update');
+Route::get('delete-bikeservice/{id}','App\Http\Controllers\Web\BikeServiceContro@destroy');
+//bike  service end 
+

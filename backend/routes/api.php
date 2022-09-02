@@ -44,3 +44,9 @@ Route::get('carcategorys', 'App\Http\Controllers\CarCategoryController@index');
 Route::get('carservices', 'App\Http\Controllers\CarServiceController@index');
 
 Route::get('get-carsevices-by-category/{categoryId}', 'App\Http\Controllers\CarServiceController@getCarServicesByCategoryId');
+
+Route::get('bikecategorys', 'App\Http\Controllers\BikeCategoryController@index');
+
+Route::get('bikeservices', 'App\Http\Controllers\BikeServiceController@index');
+
+Route::get('get-bikesevices-by-category/{categoryId}', 'App\Http\Controllers\BikeServiceController@getBikeServicesByCategoryId');
