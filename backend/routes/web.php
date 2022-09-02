@@ -72,7 +72,7 @@ Route::get('all-dotms','App\Http\Controllers\Web\DotmContro@index');
 Route::get('edit-dotm/{id}','App\Http\Controllers\Web\DotmContro@edit');
 Route::post('update-dotm/{id}','App\Http\Controllers\Web\DotmContro@update');
 Route::get('delete-dotm/{id}','App\Http\Controllers\Web\DotmContro@destroy');
-//car accesorie end
+//dotm news end
 
 // car news
 Route::get('create-car','App\Http\Controllers\Web\CarContro@create');
@@ -81,14 +81,32 @@ Route::get('all-cars','App\Http\Controllers\Web\CarContro@index');
 Route::get('edit-car/{id}','App\Http\Controllers\Web\CarContro@edit');
 Route::post('update-car/{id}','App\Http\Controllers\Web\CarContro@update');
 Route::get('delete-car/{id}','App\Http\Controllers\Web\CarContro@destroy');
-//car accesorie end
+//car news end
 
-// car news
+//bike news
 Route::get('create-bike','App\Http\Controllers\Web\BikeContro@create');
 Route::post('post-bike-form','App\Http\Controllers\Web\BikeContro@store');
 Route::get('all-bikes','App\Http\Controllers\Web\BikeContro@index');
 Route::get('edit-bike/{id}','App\Http\Controllers\Web\BikeContro@edit');
 Route::post('update-bike/{id}','App\Http\Controllers\Web\BikeContro@update');
 Route::get('delete-bike/{id}','App\Http\Controllers\Web\BikeContro@destroy');
-//car accesorie end
+//bike news end
 
+//car category
+Route::get('create-carcategory','App\Http\Controllers\Web\CarCategoryContro@create');
+Route::post('post-carcategory-form','App\Http\Controllers\Web\CarCategoryContro@store');
+Route::get('all-carcategorys','App\Http\Controllers\Web\CarCategoryContro@index');
+Route::get('edit-carcategory/{id}','App\Http\Controllers\Web\CarCategoryContro@edit');
+Route::post('update-carcategory/{id}','App\Http\Controllers\Web\CarCategoryContro@update');
+Route::get('delete-carcategory/{id}','App\Http\Controllers\Web\CarCategoryContro@destroy');
+//car  category end 
+
+
+//car service
+Route::get('create-carservice','App\Http\Controllers\Web\CarServiceContro@create');
+Route::post('post-carservice-form','App\Http\Controllers\Web\CarServiceContro@store');
+Route::get('all-carservices','App\Http\Controllers\Web\CarServiceContro@index');
+Route::get('edit-carservice/{id}','App\Http\Controllers\Web\CarServiceContro@edit');
+Route::post('update-carservice/{id}','App\Http\Controllers\Web\CarServiceContro@update');
+Route::get('delete-carservice/{id}','App\Http\Controllers\Web\CarServiceContro@destroy');
+//car  category end 

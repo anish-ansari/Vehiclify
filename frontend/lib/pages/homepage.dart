@@ -15,6 +15,7 @@ import 'package:vehiclify/pages/license.dart';
 import 'package:vehiclify/pages/mileage.dart';
 import 'package:vehiclify/pages/note.dart';
 import 'package:vehiclify/pages/scanqr.dart';
+import 'package:vehiclify/pages/service.dart';
 import 'package:vehiclify/pages/vehicleage.dart';
 import 'package:http/http.dart' as http;
 
@@ -545,7 +546,7 @@ class _HomeState extends State<Home>{
                         ),
                         InkWell(
                           onTap: () {
-                            Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context)=>new License()));
+                            Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context)=>new Service()));
                           },
                           child: Card(
                             elevation: 5,

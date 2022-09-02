@@ -38,3 +38,9 @@ Route::get('dotms', 'App\Http\Controllers\DotmController@index');
 Route::get('cars', 'App\Http\Controllers\CarController@index');
 
 Route::get('bikes', 'App\Http\Controllers\BikeController@index');
+
+Route::get('carcategorys', 'App\Http\Controllers\CarCategoryController@index');
+
+Route::get('carservices', 'App\Http\Controllers\CarServiceController@index');
+
+Route::get('get-carsevices-by-category/{categoryId}', 'App\Http\Controllers\CarServiceController@getCarServicesByCategoryId');
