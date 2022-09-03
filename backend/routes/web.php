@@ -129,3 +129,41 @@ Route::post('update-bikeservice/{id}','App\Http\Controllers\Web\BikeServiceContr
 Route::get('delete-bikeservice/{id}','App\Http\Controllers\Web\BikeServiceContro@destroy');
 //bike  service end 
 
+
+//car dealer
+Route::get('create-cardealer','App\Http\Controllers\Web\CarDealerContro@create');
+Route::post('post-cardealer-form','App\Http\Controllers\Web\CarDealerContro@store');
+Route::get('all-cardealers','App\Http\Controllers\Web\CarDealerContro@index');
+Route::get('edit-cardealer/{id}','App\Http\Controllers\Web\CarDealerContro@edit');
+Route::post('update-cardealer/{id}','App\Http\Controllers\Web\CarDealerContro@update');
+Route::get('delete-cardealer/{id}','App\Http\Controllers\Web\CarDealerContro@destroy');
+//car  dealer end 
+
+
+//bike dealer
+Route::get('create-bikedealer','App\Http\Controllers\Web\BikeDealerContro@create');
+Route::post('post-bikedealer-form','App\Http\Controllers\Web\BikeDealerContro@store');
+Route::get('all-bikedealers','App\Http\Controllers\Web\BikeDealerContro@index');
+Route::get('edit-bikedealer/{id}','App\Http\Controllers\Web\BikeDealerContro@edit');
+Route::post('update-bikedealer/{id}','App\Http\Controllers\Web\BikeDealerContro@update');
+Route::get('delete-bikedealer/{id}','App\Http\Controllers\Web\BikeDealerContro@destroy');
+//car dealer end 
+
+
+//car market
+Route::get('create-carmarket','App\Http\Controllers\Web\CarMarketContro@create');
+Route::post('post-carmarket-form','App\Http\Controllers\Web\CarMarketContro@store');
+Route::get('all-carmarkets','App\Http\Controllers\Web\CarMarketContro@index');
+Route::get('edit-carmarket/{id}','App\Http\Controllers\Web\CarMarketContro@edit');
+Route::post('update-carmarket/{id}','App\Http\Controllers\Web\CarMarketContro@update');
+Route::get('delete-carmarket/{id}','App\Http\Controllers\Web\CarMarketContro@destroy');
+//car  market end 
+
+//bike market
+Route::get('create-bikemarket','App\Http\Controllers\Web\BikeMarketContro@create');
+Route::post('post-bikemarket-form','App\Http\Controllers\Web\BikeMarketContro@store');
+Route::get('all-bikemarkets','App\Http\Controllers\Web\BikeMarketContro@index');
+Route::get('edit-bikemarket/{id}','App\Http\Controllers\Web\BikeMarketContro@edit');
+Route::post('update-bikemarket/{id}','App\Http\Controllers\Web\BikeMarketContro@update');
+Route::get('delete-bikemarket/{id}','App\Http\Controllers\Web\BikeMarketContro@destroy');
+//bike market end 

@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:vehiclify/pages/bottomnavbar.dart';
 import 'package:http/http.dart' as http;
 import 'package:vehiclify/model/carcategory.dart';
-import 'package:vehiclify/model/carservice.dart';
+import 'package:vehiclify/model/cardealer.dart';
 import 'package:vehiclify/model/bikecategory.dart';
-import 'package:vehiclify/model/bikeservice.dart';
+import 'package:vehiclify/model/bikedealer.dart';
 import 'dart:convert';
 import 'package:vehiclify/network_utils/ipaddress.dart';
 
@@ -142,11 +142,11 @@ class _CarDelCatState extends State<CarDelCat> {
               return Column(children: [
                 GestureDetector(
                   onTap: () {
-//                    Navigator.push(
-//                        context,
-//                        new MaterialPageRoute(
-//                            builder: (context) =>
-//                                CarServicePage(rule[index].id, rule[index].carcatname)));
+                    Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (context) =>
+                                CarDealerPage(rule[index].id, rule[index].carcatname)));
                   },
                   child: Card(
                     clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -186,6 +186,111 @@ class _CarDelCatState extends State<CarDelCat> {
     );
   }
 }
+
+
+
+
+class CarDealerPage extends StatefulWidget {
+
+  final String categoryName;
+  final int categoryId;
+  CarDealerPage(this.categoryId, this.categoryName);
+
+
+
+  @override
+  _CarDealerPageState createState() => _CarDealerPageState();
+}
+
+class _CarDealerPageState extends State<CarDealerPage> {
+
+
+  String id;
+
+  bool isLoading = false;
+
+  Future<List<CarDealer>> getProductsByCategoryId(String id) async{
+    var products = await http.get("http://${Server.ipAddress}/vehiclify/public/api/get-cardealers-by-category/${this.widget.categoryId}");
+
+    var notes = List<CarDealer>();
+
+    if(products.statusCode ==200){
+      var _list = json.decode(products.body);
+      for(var noteJson in _list){
+        notes.add(CarDealer.fromJson(noteJson));
+      }
+    }
+    return notes;
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    getProductsByCategoryId(id).then((value){
+      setState(() {
+        _productListByCategory.addAll(value);
+      });
+    });
+    super.initState();
+
+  }
+
+  List<CarDealer> _productListByCategory = List<CarDealer>();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(icon: Icon(Icons.arrow_back),
+          onPressed: (){
+            Navigator.pushReplacement(context,
+                new MaterialPageRoute(builder: (context) => MyBottomNavigationBar()));
+          },
+        ),
+        automaticallyImplyLeading: false,
+        title: Text(widget.categoryName),
+        centerTitle: true,
+        backgroundColor: Colors.lightBlue,
+      ),
+
+      backgroundColor: Colors.white,
+//        body: Container(
+//          child: Text('good'),
+//        ),
+      body: isLoading
+          ? Center(
+        child: CircularProgressIndicator(),
+      )
+          :
+      _productListByCategory.isEmpty ? Center(child: Text("No service found")) : ListView.builder (
+        itemCount: _productListByCategory == null ? 0 : _productListByCategory.length,
+        itemBuilder: (BuildContext context, index) {
+          return Column(
+            children: <Widget>[
+              Card(
+                elevation: 5,
+                color: Colors.white,
+                child: ListTile(
+                  title: Text("•  ${_productListByCategory[index].cardelname}"),
+
+
+                ),
+              ),
+
+            ],
+          );
+        },
+      ),
+
+    );
+  }
+}
+
+
+
+
+
+
 
 
 
@@ -265,11 +370,11 @@ class _BikeDelCatState extends State<BikeDelCat> {
               return Column(children: [
                 GestureDetector(
                   onTap: () {
-//                    Navigator.push(
-//                        context,
-//                        new MaterialPageRoute(
-//                            builder: (context) =>
-//                                BikeServicePage(rule[index].id, rule[index].bikecatname)));
+                    Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (context) =>
+                                BikeDealerPage(rule[index].id, rule[index].bikecatname)));
                   },
                   child: Card(
                     clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -309,4 +414,104 @@ class _BikeDelCatState extends State<BikeDelCat> {
     );
   }
 }
+
+
+class BikeDealerPage extends StatefulWidget {
+
+  final String categoryName;
+  final int categoryId;
+  BikeDealerPage(this.categoryId, this.categoryName);
+
+  @override
+  _BikeDealerPageState createState() => _BikeDealerPageState();
+}
+
+class _BikeDealerPageState extends State<BikeDealerPage> {
+
+
+  String id;
+
+  bool isLoading = false;
+
+  Future<List<BikeDealer>> getProductsByCategoryId(String id) async{
+    var products = await http.get("http://${Server.ipAddress}/vehiclify/public/api/get-bikedealers-by-category/${this.widget.categoryId}");
+
+    var notes = List<BikeDealer>();
+
+    if(products.statusCode ==200){
+      var _list = json.decode(products.body);
+      for(var noteJson in _list){
+        notes.add(BikeDealer.fromJson(noteJson));
+      }
+    }
+    return notes;
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    getProductsByCategoryId(id).then((value){
+      setState(() {
+        _productListByCategory.addAll(value);
+      });
+    });
+    super.initState();
+
+  }
+
+  List<BikeDealer> _productListByCategory = List<BikeDealer>();
+
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(icon: Icon(Icons.arrow_back),
+          onPressed: (){
+            Navigator.pushReplacement(context,
+                new MaterialPageRoute(builder: (context) => MyBottomNavigationBar()));
+          },
+        ),
+        automaticallyImplyLeading: false,
+        title: Text(widget.categoryName),
+        centerTitle: true,
+        backgroundColor: Colors.lightBlue,
+      ),
+
+      backgroundColor: Colors.white,
+//        body: Container(
+//          child: Text('good'),
+//        ),
+      body: isLoading
+          ? Center(
+        child: CircularProgressIndicator(),
+      )
+          :
+      _productListByCategory.isEmpty ? Center(child: Text("No service found")) : ListView.builder (
+        itemCount: _productListByCategory == null ? 0 : _productListByCategory.length,
+        itemBuilder: (BuildContext context, index) {
+          return Column(
+            children: <Widget>[
+              Card(
+                elevation: 5,
+                color: Colors.white,
+                child: ListTile(
+                  title: Text("•  ${_productListByCategory[index].bikedelname}"),
+
+
+                ),
+              ),
+
+            ],
+          );
+        },
+      ),
+
+    );
+  }
+}
+
+
+
 

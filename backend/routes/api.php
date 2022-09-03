@@ -50,3 +50,20 @@ Route::get('bikecategorys', 'App\Http\Controllers\BikeCategoryController@index')
 Route::get('bikeservices', 'App\Http\Controllers\BikeServiceController@index');
 
 Route::get('get-bikesevices-by-category/{categoryId}', 'App\Http\Controllers\BikeServiceController@getBikeServicesByCategoryId');
+
+Route::get('cardealers', 'App\Http\Controllers\CarDealerController@index');
+
+Route::get('get-cardealers-by-category/{categoryId}', 'App\Http\Controllers\CarDealerController@getCarDealerByCategoryId');
+
+Route::get('bikedealers', 'App\Http\Controllers\BikeDealerController@index');
+
+Route::get('get-bikedealers-by-category/{categoryId}', 'App\Http\Controllers\BikeDealerController@getBikeDealerByCategoryId');
+
+Route::get('carmarkets', 'App\Http\Controllers\CarMarketController@index');
+
+Route::get('get-carmarkets-by-category/{categoryId}', 'App\Http\Controllers\CarMarketController@getCarMarketByCategoryId');
+
+Route::get('bikemarkets', 'App\Http\Controllers\BikeMarketController@index');
+
+Route::get('get-bikemarkets-by-category/{categoryId}', 'App\Http\Controllers\BikeMarketController@getBikeMarketByCategoryId');
+

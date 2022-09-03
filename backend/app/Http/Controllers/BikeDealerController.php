@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CarService;
+use App\Models\BikeDealer;
 use Illuminate\Http\Request;
-use App\Http\Resources\CarServiceResource;
+use App\Http\Resources\BikeDealerResource;
 
-class CarServiceController extends Controller
+
+class BikeDealerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +16,9 @@ class CarServiceController extends Controller
      */
     public function index()
     {
-        $carservices = CarService::all()->toArray();
+        $bikedealers = BikeDealer::all()->toArray();
         //dd($books);
-        return new CarServiceResource($carservices);
+        return new BikeDealerResource($bikedealers);
     }
 
     /**
@@ -44,10 +45,10 @@ class CarServiceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\CarService  $carService
+     * @param  \App\Models\BikeDealer  $bikeDealer
      * @return \Illuminate\Http\Response
      */
-    public function show(CarService $carService)
+    public function show(BikeDealer $bikeDealer)
     {
         //
     }
@@ -55,10 +56,10 @@ class CarServiceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\CarService  $carService
+     * @param  \App\Models\BikeDealer  $bikeDealer
      * @return \Illuminate\Http\Response
      */
-    public function edit(CarService $carService)
+    public function edit(BikeDealer $bikeDealer)
     {
         //
     }
@@ -67,10 +68,10 @@ class CarServiceController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\CarService  $carService
+     * @param  \App\Models\BikeDealer  $bikeDealer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CarService $carService)
+    public function update(Request $request, BikeDealer $bikeDealer)
     {
         //
     }
@@ -78,17 +79,16 @@ class CarServiceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\CarService  $carService
+     * @param  \App\Models\BikeDealer  $bikeDealer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CarService $carService)
+    public function destroy(BikeDealer $bikeDealer)
     {
         //
     }
 
-
-    public function getCarSsByCategoryId($categoryId){
-        $productsByCategory = CarService::where('carcategory_id',$categoryId)->get();
-         return CarServiceResource::collection($productsByCategory);
+    public function getBikeDealerByCategoryId($categoryId){
+        $productsByCategory = BikeDealer::where('bikedelcategory_id',$categoryId)->get();
+         return BikeDealerResource::collection($productsByCategory);
      }
 }
