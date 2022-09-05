@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:vehiclify/pages/bottomnavbar.dart';
 import 'package:vehiclify/pages/homepage.dart';
+import 'package:vehiclify/pages/licenseimage.dart';
 
 
 class License extends StatefulWidget {
@@ -12,6 +13,8 @@ class License extends StatefulWidget {
 }
 
 class _LicenseState extends State<License> {
+
+  int id;
   String name;
   String email;
   String phone;
@@ -51,6 +54,7 @@ class _LicenseState extends State<License> {
 
     if (user != null) {
       setState(() {
+        id = user['id'];
         licenseno = user['licenseno'];
         licenseoffice = user['licenseoffice'];
         dateofissue = user['dateofissue'];
@@ -73,6 +77,15 @@ class _LicenseState extends State<License> {
         ),
         automaticallyImplyLeading: false,
         title: Text('License'),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.credit_card),
+            onPressed: (){
+              Navigator.pushReplacement(context,
+                  new MaterialPageRoute(builder: (context) => LicenseImage()));
+            },
+          )
+        ],
         centerTitle: true,
         backgroundColor: Colors.lightBlue,
       ),
@@ -81,6 +94,7 @@ class _LicenseState extends State<License> {
         child: Container(
           child: QrImage(
             data: 'License Information\n\n'
+                'id: $id\n\n'
                 'License No: $licenseno\n\n'
                 'Licnese office: $licenseoffice\n\n'
                 'Issue Date: $dateofissue\n\n'

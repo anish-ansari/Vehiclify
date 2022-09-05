@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:vehiclify/model/fuel.dart';
 import 'package:vehiclify/network_utils/ipaddress.dart';
 import 'package:vehiclify/pages/bikeaccessories.dart';
@@ -14,6 +15,7 @@ import 'package:vehiclify/pages/emi.dart';
 import 'package:vehiclify/pages/insurance.dart';
 import 'package:vehiclify/pages/license.dart';
 import 'package:vehiclify/pages/mileage.dart';
+import 'package:vehiclify/pages/nearbypage.dart';
 import 'package:vehiclify/pages/note.dart';
 import 'package:vehiclify/pages/scanqr.dart';
 import 'package:vehiclify/pages/service.dart';
@@ -72,8 +74,6 @@ class _HomeState extends State<Home>{
     });
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -82,6 +82,13 @@ class _HomeState extends State<Home>{
         title: Text('Vehiclify'),
         centerTitle: true,
         backgroundColor: Colors.lightBlue,
+        actions: <Widget>[
+          IconButton(icon: Icon(Icons.near_me),
+          onPressed: (){
+            Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context)=>new NearbyPage()));
+          },
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Container(

@@ -26,47 +26,51 @@ class _ScanQRState extends State<ScanQR> {
         centerTitle: true,
         backgroundColor: Colors.lightBlue,
       ),
-      body: Container(
-        padding: EdgeInsets.all(20),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            //Message displayed over here
-            Text(
-              "Result",
-              style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
-              textAlign: TextAlign.center,
-            ),
-            Text(
-              qrCodeResult,
-              style: TextStyle(
-                fontSize: 20.0,
-              ),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(
-              height: 20.0,
-            ),
+      body: Center(
+        child: Container(
+          padding: EdgeInsets.all(20),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                //Message displayed over here
+                Text(
+                  "Result",
+                  style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  qrCodeResult,
+                  style: TextStyle(
+                    fontSize: 20.0,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(
+                  height: 20.0,
+                ),
 
-            //Button to scan QR code
-            FlatButton(
-              padding: EdgeInsets.all(15),
-              onPressed: () async {
-                String codeSanner = await BarcodeScanner.scan();    //barcode scanner
-                setState(() {
-                  qrCodeResult = codeSanner;
-                });
-              },
-              child: Text("Open Scanner",style: TextStyle(color: Colors.lightBlue),),
-              //Button having rounded rectangle border
-              shape: RoundedRectangleBorder(
-                side: BorderSide(color: Colors.lightBlue),
-                borderRadius: BorderRadius.circular(20.0),
-              ),
-            ),
+                //Button to scan QR code
+                FlatButton(
+                  padding: EdgeInsets.all(15),
+                  onPressed: () async {
+                    String codeSanner = await BarcodeScanner.scan();    //barcode scanner
+                    setState(() {
+                      qrCodeResult = codeSanner;
+                    });
+                  },
+                  child: Text("Open Scanner",style: TextStyle(color: Colors.lightBlue),),
+                  //Button having rounded rectangle border
+                  shape: RoundedRectangleBorder(
+                    side: BorderSide(color: Colors.lightBlue),
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
+                ),
 
-          ],
+              ],
+            ),
+          ),
         ),
       ),
     );

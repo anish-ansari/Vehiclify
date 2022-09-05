@@ -8,6 +8,7 @@ import 'package:vehiclify/model/bikecategory.dart';
 import 'package:vehiclify/model/bikedealer.dart';
 import 'dart:convert';
 import 'package:vehiclify/network_utils/ipaddress.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 
 class Dealer extends StatefulWidget {
@@ -192,6 +193,10 @@ class _CarDelCatState extends State<CarDelCat> {
 
 class CarDealerPage extends StatefulWidget {
 
+
+
+
+
   final String categoryName;
   final int categoryId;
   CarDealerPage(this.categoryId, this.categoryName);
@@ -203,6 +208,29 @@ class CarDealerPage extends StatefulWidget {
 }
 
 class _CarDealerPageState extends State<CarDealerPage> {
+
+  navigateTocardealerphone(url) async
+  {
+    if(await canLaunch(url))
+    {
+      await launch(url);
+    }
+    else {
+      Text('Link is not Working $url');
+    }
+  }
+
+  navigateTocardealerlocation(url) async
+  {
+    if(await canLaunch(url))
+    {
+      await launch(url);
+    }
+    else {
+      Text('Link is not Working $url');
+    }
+  }
+
 
 
   String id;
@@ -271,7 +299,14 @@ class _CarDealerPageState extends State<CarDealerPage> {
                 elevation: 5,
                 color: Colors.white,
                 child: ListTile(
+                  leading: IconButton(icon: Icon(Icons.call),
+                    onPressed: ()=>navigateTocardealerphone("tel:${_productListByCategory[index].cardelphoneno}") ,
+                  ),
                   title: Text("•  ${_productListByCategory[index].cardelname}"),
+                  subtitle: Text("${_productListByCategory[index].cardeladdress}"),
+                  trailing:IconButton(icon: Icon(Icons.location_on),
+                    onPressed: ()=>navigateTocardealerlocation("${_productListByCategory[index].cardellocation}") ,
+                  ),
 
 
                 ),
@@ -285,10 +320,6 @@ class _CarDealerPageState extends State<CarDealerPage> {
     );
   }
 }
-
-
-
-
 
 
 
@@ -429,6 +460,29 @@ class BikeDealerPage extends StatefulWidget {
 class _BikeDealerPageState extends State<BikeDealerPage> {
 
 
+  navigateTobikedealerphone(url) async
+  {
+    if(await canLaunch(url))
+    {
+      await launch(url);
+    }
+    else {
+      Text('Link is not Working $url');
+    }
+  }
+
+  navigateTobikedealerlocation(url) async
+  {
+    if(await canLaunch(url))
+    {
+      await launch(url);
+    }
+    else {
+      Text('Link is not Working $url');
+    }
+  }
+
+
   String id;
 
   bool isLoading = false;
@@ -497,7 +551,14 @@ class _BikeDealerPageState extends State<BikeDealerPage> {
                 elevation: 5,
                 color: Colors.white,
                 child: ListTile(
+                  leading: IconButton(icon: Icon(Icons.call),
+                    onPressed: ()=>navigateTobikedealerphone("tel:${_productListByCategory[index].bikedelphoneno}") ,
+                  ),
                   title: Text("•  ${_productListByCategory[index].bikedelname}"),
+                  subtitle: Text("${_productListByCategory[index].bikedeladdress}"),
+                  trailing: IconButton(icon: Icon(Icons.location_on),
+                    onPressed: ()=>navigateTobikedealerphone("${_productListByCategory[index].bikedellocation}") ,
+                  ),
 
 
                 ),

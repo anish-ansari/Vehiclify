@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:vehiclify/pages/bluebookimage.dart';
 import 'package:vehiclify/pages/bottomnavbar.dart';
 import 'package:vehiclify/pages/homepage.dart';
 
@@ -67,6 +68,15 @@ class _BlueBookState extends State<BlueBook> {
         automaticallyImplyLeading: false,
         title: Text('BlueBook'),
         centerTitle: true,
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.book),
+            onPressed: (){
+              Navigator.pushReplacement(context,
+                  new MaterialPageRoute(builder: (context) => BlueBookImage()));
+            },
+          )
+        ],
         backgroundColor: Colors.lightBlue,
       ),
 

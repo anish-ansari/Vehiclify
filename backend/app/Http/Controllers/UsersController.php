@@ -63,7 +63,7 @@ class UsersController extends Controller
             'boughtfrom' => 'required',
             'use' => 'required',
             'drivingarea' => 'required',
-            'image'=>'required',
+            // 'image'=>'required',
             'renewdate' => 'required',
 
             
@@ -103,4 +103,7 @@ class UsersController extends Controller
         ]);
       }
      }
+
+
+     
 }

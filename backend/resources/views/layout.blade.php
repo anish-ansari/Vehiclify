@@ -335,6 +335,21 @@
         </li>
 
 
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Nearby</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+
+                <a class="dropdown-item" href="{{ URL::to('create-nearby') }}"> Add Nearby</a>
+                <a class="dropdown-item" href="{{ URL::to('all-nearbys') }}"> All Nearby </a>
+
+            </div>
+        </li>
+
+
+
 
 
 

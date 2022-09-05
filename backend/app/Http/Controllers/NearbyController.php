@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CarService;
+use App\Models\Nearby;
 use Illuminate\Http\Request;
-use App\Http\Resources\CarServiceResource;
+use App\Http\Resources\NearbyResource;
 
-class CarServiceController extends Controller
+class NearbyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class CarServiceController extends Controller
      */
     public function index()
     {
-        $carservices = CarService::all()->toArray();
+        $nearbys = Nearby::all()->toArray();
         //dd($books);
-        return new CarServiceResource($carservices);
+        return new NearbyResource($nearbys);
     }
 
     /**
@@ -44,10 +44,10 @@ class CarServiceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\CarService  $carService
+     * @param  \App\Models\Nearby  $nearby
      * @return \Illuminate\Http\Response
      */
-    public function show(CarService $carService)
+    public function show(Nearby $nearby)
     {
         //
     }
@@ -55,10 +55,10 @@ class CarServiceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\CarService  $carService
+     * @param  \App\Models\Nearby  $nearby
      * @return \Illuminate\Http\Response
      */
-    public function edit(CarService $carService)
+    public function edit(Nearby $nearby)
     {
         //
     }
@@ -67,10 +67,10 @@ class CarServiceController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\CarService  $carService
+     * @param  \App\Models\Nearby  $nearby
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CarService $carService)
+    public function update(Request $request, Nearby $nearby)
     {
         //
     }
@@ -78,17 +78,11 @@ class CarServiceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\CarService  $carService
+     * @param  \App\Models\Nearby  $nearby
      * @return \Illuminate\Http\Response
      */
-    public function destroy(CarService $carService)
+    public function destroy(Nearby $nearby)
     {
         //
     }
-
-
-    public function getCarServicesByCategoryId($categoryId){
-        $productsByCategory = CarService::where('carcategory_id',$categoryId)->get();
-         return CarServiceResource::collection($productsByCategory);
-     }
 }

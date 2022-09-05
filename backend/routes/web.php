@@ -167,3 +167,11 @@ Route::get('edit-bikemarket/{id}','App\Http\Controllers\Web\BikeMarketContro@edi
 Route::post('update-bikemarket/{id}','App\Http\Controllers\Web\BikeMarketContro@update');
 Route::get('delete-bikemarket/{id}','App\Http\Controllers\Web\BikeMarketContro@destroy');
 //bike market end 
+
+
+Route::get('create-nearby','App\Http\Controllers\Web\NearbyContro@create');
+Route::post('post-nearby-form','App\Http\Controllers\Web\NearbyContro@store');
+Route::get('all-nearbys','App\Http\Controllers\Web\NearbyContro@index');
+Route::get('edit-nearby/{id}','App\Http\Controllers\Web\NearbyContro@edit');
+Route::post('update-nearby/{id}','App\Http\Controllers\Web\NearbyContro@update');
+Route::get('delete-nearby/{id}','App\Http\Controllers\Web\NearbyContro@destroy');

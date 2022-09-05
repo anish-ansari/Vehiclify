@@ -6,6 +6,7 @@ import 'package:vehiclify/model/carcategory.dart';
 import 'package:vehiclify/model/carservice.dart';
 import 'package:vehiclify/model/bikecategory.dart';
 import 'package:vehiclify/model/bikeservice.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'dart:convert';
 import 'package:vehiclify/network_utils/ipaddress.dart';
@@ -200,6 +201,30 @@ class CarServicePage extends StatefulWidget {
 
 class _CarServicePageState extends State<CarServicePage> {
 
+  navigateTophone(url) async
+  {
+    if(await canLaunch(url))
+    {
+      await launch(url);
+    }
+    else {
+      Text('Link is not Working $url');
+    }
+  }
+
+  navigateTolocation(url) async
+  {
+    if(await canLaunch(url))
+    {
+      await launch(url);
+    }
+    else {
+      Text('Link is not Working $url');
+    }
+  }
+
+
+
   String id;
 
   bool isLoading = false;
@@ -266,7 +291,13 @@ class _CarServicePageState extends State<CarServicePage> {
                       elevation: 5,
                       color: Colors.white,
                       child: ListTile(
+                        leading: IconButton(icon: Icon(Icons.call),
+                          onPressed: ()=>navigateTophone("tel:${_productListByCategory[index].carserphoneno}") ,
+                        ),
                         title: Text("•  ${_productListByCategory[index].carsername}"),
+                        subtitle: Text("${_productListByCategory[index].carseraddress}"),
+                        trailing: IconButton(icon: Icon(Icons.location_on),
+                          onPressed: ()=>navigateTolocation("${_productListByCategory[index].carserlocation}")),
 
 
                       ),
@@ -419,6 +450,32 @@ class BikeServicePage extends StatefulWidget {
 
 class _BikeServicePageState extends State<BikeServicePage> {
 
+
+  navigateTobikephone(url) async
+  {
+    if(await canLaunch(url))
+    {
+      await launch(url);
+    }
+    else {
+      Text('Link is not Working $url');
+    }
+  }
+
+  navigateTobikelocation(url) async
+  {
+    if(await canLaunch(url))
+    {
+      await launch(url);
+    }
+    else {
+      Text('Link is not Working $url');
+    }
+  }
+
+
+
+
   String id;
 
   bool isLoading = false;
@@ -485,7 +542,14 @@ class _BikeServicePageState extends State<BikeServicePage> {
                 elevation: 5,
                 color: Colors.white,
                 child: ListTile(
+                  leading: IconButton(icon: Icon(Icons.call),
+                    onPressed: ()=>navigateTobikephone("tel:${_productListByCategory[index].bikeserphoneno}") ,
+                  ),
                   title: Text("•  ${_productListByCategory[index].bikesername}"),
+                  subtitle: Text("${_productListByCategory[index].bikeseraddress}"),
+                  trailing: IconButton(icon: Icon(Icons.location_on),
+                    onPressed: ()=>navigateTobikelocation("${_productListByCategory[index].bikeserlocation}") ,
+                  ),
 
 
                 ),

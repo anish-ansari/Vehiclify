@@ -67,3 +67,5 @@ Route::get('bikemarkets', 'App\Http\Controllers\BikeMarketController@index');
 
 Route::get('get-bikemarkets-by-category/{categoryId}', 'App\Http\Controllers\BikeMarketController@getBikeMarketByCategoryId');
 
+Route::get('nearbys', 'App\Http\Controllers\NearbyController@index');
+
