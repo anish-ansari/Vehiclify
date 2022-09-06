@@ -1,6 +1,6 @@
 class Server {
 
-  static String ipAddress = "192.168.1.66";
+  static String ipAddress = "192.168.1.70";
 
 //   static String ipAddress;
 //

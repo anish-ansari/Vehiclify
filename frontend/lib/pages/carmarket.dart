@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:vehiclify/model/carmarketmodel.dart';
 import 'package:vehiclify/pages/bottomnavbar.dart';
 import 'package:http/http.dart' as http;
@@ -155,6 +156,7 @@ class CarMarketPage extends StatefulWidget {
 
 class _CarMarketPageState extends State<CarMarketPage> {
 
+
   String id;
 
   bool isLoading = false;
@@ -252,6 +254,19 @@ class CarMarketDetailPage extends StatelessWidget {
 
   CarMarketDetailPage(this.ca);
 
+  navigateTobooknow(url) async
+  {
+    if(await canLaunch(url))
+    {
+      await launch(url);
+    }
+    else {
+      Text('Link is not Working $url');
+    }
+  }
+
+
+
 
 
   @override
@@ -286,16 +301,197 @@ class CarMarketDetailPage extends StatelessWidget {
           ),
           Divider(),
           Padding(
-            padding: const EdgeInsets.only(left:10.0),
-            child: ListTile(
-              title: Text('Dimension Length/Width/Height/WheelBase/GroundClearence',style: TextStyle(
-                  fontSize: 20.0,fontWeight: FontWeight.w600
-              ),),
-              subtitle: Padding(
-                padding: const EdgeInsets.only(top:8.0),
-                child: Text(ca.vcdimension),
+            padding: const EdgeInsets.all(20.0),
+          child: Column(
+            children: <Widget>[
+              SizedBox(
+                height: 15,
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+
+                 Text('Dimension\n\nLength/Width/Height/WheelBase/\nGroundClearence',style: TextStyle(
+                fontSize: 16.0, fontWeight: FontWeight.w600),
+                   overflow: TextOverflow.ellipsis,
+                 ),
+                ],
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Text(ca.vcdimension,style: TextStyle(
+                      fontSize: 16.0, fontWeight: FontWeight.w600),),
+                ],
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Divider(),
+            SizedBox(
+              height: 15,
             ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Text('Color',style: TextStyle(
+                      fontSize: 16.0, fontWeight: FontWeight.w600 ),),
+                ],
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Text(ca.vccolor,style: TextStyle(
+                      fontSize: 16.0, fontWeight: FontWeight.w600),),
+                ],
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Divider(),
+            SizedBox(
+              height: 15,
+            ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Text('Displacement: ${ca.vcdisplacement} cc',style: TextStyle(
+                      fontSize: 16.0,fontWeight: FontWeight.w600 ),),
+                ],
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Text('Power :${ca.vcpower} bhp',style: TextStyle(
+                      fontSize: 16.0, fontWeight: FontWeight.w600),),
+                ],
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Text('Torque :${ca.vctorque} Nm',style: TextStyle(
+                      fontSize: 16.0, fontWeight: FontWeight.w600),),
+                ],
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Text('Tyre :${ca.vctyre}',style: TextStyle(
+                      fontSize: 16.0, fontWeight: FontWeight.w600),),
+                ],
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Text('Transmission :${ca.vctransmission}',style: TextStyle(
+                      fontSize: 16.0, fontWeight: FontWeight.w600),),
+                ],
+              ),
+              SizedBox(
+                height: 15,
+              ),
+
+              Divider(),
+              SizedBox(
+                height: 15,
+              ),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Text('Varient',style: TextStyle(
+                      fontSize: 16.0, fontWeight: FontWeight.w600),),
+                ],
+              ),
+              SizedBox(
+                height: 30,
+              ),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Text(ca.vcvarient,style: TextStyle(
+                      fontSize: 16.0, fontWeight: FontWeight.w600),),
+                ],
+              ),
+
+              SizedBox(
+                height: 15,
+              ),
+              Divider(),
+              SizedBox(
+                height: 15,
+              ),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Text('Price',style: TextStyle(
+                      fontSize: 16.0, fontWeight: FontWeight.w600),),
+                ],
+              ),
+
+              SizedBox(
+                height: 30,
+              ),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Text('${ca.vcprice} Lakh',style: TextStyle(
+                      fontSize: 16.0, fontWeight: FontWeight.w600),),
+                ],
+              ),
+
+              SizedBox(
+                height: 15,
+              ),
+
+
+              Divider(),
+              SizedBox(
+                height: 30,
+              ),
+
+              ButtonTheme(
+
+                minWidth: 200,
+                  height: 50,
+
+                  child: RaisedButton(
+                    child: Text("Book Now",style: TextStyle(
+                        color: Colors.white, fontSize: 18
+                    ),),
+                    color: Colors.lightBlue,
+                    onPressed: ()=>navigateTobooknow("${ca.vcbooknow}") ,
+
+                ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+
+
+            ],
+          ),
           ),
         ],
       ),

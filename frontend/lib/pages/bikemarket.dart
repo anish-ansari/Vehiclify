@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:vehiclify/pages/bottomnavbar.dart';
 import 'package:http/http.dart' as http;
 import 'package:vehiclify/model/bikecategory.dart';
@@ -252,6 +253,18 @@ class BikeMarketDetailPage extends StatelessWidget {
 
   BikeMarketDetailPage(this.ba);
 
+  navigateTobooknow(url) async
+  {
+    if(await canLaunch(url))
+    {
+      await launch(url);
+    }
+    else {
+      Text('Link is not Working $url');
+    }
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -285,15 +298,170 @@ class BikeMarketDetailPage extends StatelessWidget {
           ),
           Divider(),
           Padding(
-            padding: const EdgeInsets.only(left:10.0),
-            child: ListTile(
-              title: Text('Varient',style: TextStyle(
-                  fontSize: 20.0,fontWeight: FontWeight.w600
-              ),),
-              subtitle: Padding(
-                padding: const EdgeInsets.only(top:8.0),
-                child: Text(ba.vbvarient),
-              ),
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: 15,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Text('Color',style: TextStyle(
+                        fontSize: 16.0, fontWeight: FontWeight.w600 ),),
+                  ],
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Text(ba.vbcolor,style: TextStyle(
+                        fontSize: 16.0, fontWeight: FontWeight.w600),),
+                  ],
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                Divider(),
+                SizedBox(
+                  height: 15,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Text('Displacement: ${ba.vbdisplacement} cc',style: TextStyle(
+                        fontSize: 16.0,fontWeight: FontWeight.w600 ),),
+                  ],
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Text('Power :${ba.vbpower} bhp',style: TextStyle(
+                        fontSize: 16.0, fontWeight: FontWeight.w600),),
+                  ],
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Text('Torque :${ba.vbtorque} Nm',style: TextStyle(
+                        fontSize: 16.0, fontWeight: FontWeight.w600),),
+                  ],
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Text('Tyre :${ba.vbtyre}',style: TextStyle(
+                        fontSize: 16.0, fontWeight: FontWeight.w600),),
+                  ],
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Text('Transmission :${ba.vbtransmission}',style: TextStyle(
+                        fontSize: 16.0, fontWeight: FontWeight.w600),),
+                  ],
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+
+                Divider(),
+                SizedBox(
+                  height: 15,
+                ),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Text('Varient',style: TextStyle(
+                        fontSize: 16.0, fontWeight: FontWeight.w600),),
+                  ],
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Text(ba.vbvarient,style: TextStyle(
+                        fontSize: 16.0, fontWeight: FontWeight.w600),),
+                  ],
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+
+                Divider(),
+
+                SizedBox(
+                  height: 15,
+                ),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Text('Price',style: TextStyle(
+                        fontSize: 16.0, fontWeight: FontWeight.w600),),
+                  ],
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Text('${ba.vbprice}Lakh',style: TextStyle(
+                        fontSize: 16.0, fontWeight: FontWeight.w600),),
+                  ],
+                ),
+
+
+                SizedBox(
+                  height: 15,
+                ),
+
+
+                Divider(),
+                SizedBox(
+                  height: 30,
+                ),
+
+                ButtonTheme(
+
+                  minWidth: 200,
+                  height: 50,
+
+                  child: RaisedButton(
+                    child: Text("Book Now",style: TextStyle(
+                        color: Colors.white, fontSize: 18
+                    ),),
+                    color: Colors.lightBlue,
+                    onPressed: ()=>navigateTobooknow("${ba.vbbooknow}") ,
+
+                  ),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+
+
+              ],
             ),
           ),
         ],
@@ -302,6 +470,10 @@ class BikeMarketDetailPage extends StatelessWidget {
     );
   }
 }
+
+
+
+
 
 
 
