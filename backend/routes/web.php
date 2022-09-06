@@ -168,10 +168,21 @@ Route::post('update-bikemarket/{id}','App\Http\Controllers\Web\BikeMarketContro@
 Route::get('delete-bikemarket/{id}','App\Http\Controllers\Web\BikeMarketContro@destroy');
 //bike market end 
 
-
+//nearby
 Route::get('create-nearby','App\Http\Controllers\Web\NearbyContro@create');
 Route::post('post-nearby-form','App\Http\Controllers\Web\NearbyContro@store');
 Route::get('all-nearbys','App\Http\Controllers\Web\NearbyContro@index');
 Route::get('edit-nearby/{id}','App\Http\Controllers\Web\NearbyContro@edit');
 Route::post('update-nearby/{id}','App\Http\Controllers\Web\NearbyContro@update');
 Route::get('delete-nearby/{id}','App\Http\Controllers\Web\NearbyContro@destroy');
+//nearby
+
+
+//driving school
+Route::get('create-drivingschool','App\Http\Controllers\Web\DrivingSchoolContro@create');
+Route::post('post-drivingschool-form','App\Http\Controllers\Web\DrivingSchoolContro@store');
+Route::get('all-drivingschools','App\Http\Controllers\Web\DrivingSchoolContro@index');
+Route::get('edit-drivingschool/{id}','App\Http\Controllers\Web\DrivingSchoolContro@edit');
+Route::post('update-drivingschool/{id}','App\Http\Controllers\Web\DrivingSchoolContro@update');
+Route::get('delete-drivingschool/{id}','App\Http\Controllers\Web\DrivingSchoolContro@destroy');
+//driving school end 

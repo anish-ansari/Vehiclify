@@ -69,3 +69,5 @@ Route::get('get-bikemarkets-by-category/{categoryId}', 'App\Http\Controllers\Bik
 
 Route::get('nearbys', 'App\Http\Controllers\NearbyController@index');
 
+Route::get('drivingschools', 'App\Http\Controllers\DrivingSchoolController@index');
+

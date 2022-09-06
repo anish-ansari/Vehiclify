@@ -11,6 +11,7 @@ import 'package:vehiclify/pages/caraccesories.dart';
 import 'package:vehiclify/pages/carnews.dart';
 import 'package:vehiclify/pages/dealer.dart';
 import 'package:vehiclify/pages/dotmnews.dart';
+import 'package:vehiclify/pages/drivingschoolpage.dart';
 import 'package:vehiclify/pages/emi.dart';
 import 'package:vehiclify/pages/insurance.dart';
 import 'package:vehiclify/pages/license.dart';
@@ -27,6 +28,20 @@ class Home extends StatefulWidget {
   _HomeState createState() => _HomeState();
 }
 class _HomeState extends State<Home>{
+
+
+
+  navigateToesewa(url) async
+  {
+    if(await canLaunch(url))
+    {
+      await launch(url);
+    }
+    else {
+      Text('Link is not Working $url');
+    }
+  }
+
 
   bool isLoading=false;
   String url = "http://${Server.ipAddress}/vehiclify/public/api/fules";
@@ -333,9 +348,152 @@ class _HomeState extends State<Home>{
                         ),
                       ],
                     ),
-
                   ),
                 ),
+
+
+
+                Padding(padding: EdgeInsets.only(top: 10.0)),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget>[
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context)=>new DrivingSchoolPage()));
+                          },
+                          child: Card(
+                            elevation: 5,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)
+                            ),
+
+                            child: Container(
+                              height: 130.0,
+                              child: Center(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: <Widget>[
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 15.0,right: 15.0),
+                                      child: Image(image: AssetImage("assets/images/driving.png"),height: 90,width: 90,),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 0, right: 0, bottom: 0),
+                                      child: Text("Driving School",),
+                                    )
+
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context)=>new BikeAccesoriePage()));
+                          },
+                          child: Card(
+                            elevation: 5,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)
+                            ),
+
+                            child: Container(
+                              height: 130.0,
+                              child: Center(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: <Widget>[
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 15.0,right: 15.0),
+                                      child: Image(image: AssetImage("assets/images/exam.png"),height: 90,width: 90,),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 0, right: 0, bottom: 0),
+                                      child: Text("License Info",),
+                                    )
+
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        InkWell(
+                          onTap: ()=>navigateToesewa("https://esewa.com.np/#/make_payment/NP-ES-TVRS-GOVERNMENT-PAYMENT/Traffic%20Police%20Fine%20Payment"),
+                          child: Card(
+                            elevation: 5,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)
+                            ),
+
+                            child: Container(
+                              height: 130.0,
+                              child: Center(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: <Widget>[
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 15.0,right: 15.0),
+                                      child: Image(image: AssetImage("assets/images/fine.png"),height: 90,width: 90,),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 0, right: 0, bottom: 0),
+                                      child: Text("Fine",),
+                                    )
+
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 Padding(padding: EdgeInsets.only(top: 25.0),),
                 Row(
                   children: <Widget>[
