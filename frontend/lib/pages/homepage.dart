@@ -13,6 +13,7 @@ import 'package:vehiclify/pages/dealer.dart';
 import 'package:vehiclify/pages/dotmnews.dart';
 import 'package:vehiclify/pages/drivingschoolpage.dart';
 import 'package:vehiclify/pages/emi.dart';
+import 'package:vehiclify/pages/exam.dart';
 import 'package:vehiclify/pages/insurance.dart';
 import 'package:vehiclify/pages/license.dart';
 import 'package:vehiclify/pages/mileage.dart';
@@ -394,7 +395,7 @@ class _HomeState extends State<Home>{
                         ),
                         InkWell(
                           onTap: () {
-                            Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context)=>new BikeAccesoriePage()));
+                            Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context)=>new Exam()));
                           },
                           child: Card(
                             elevation: 5,
