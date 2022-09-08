@@ -49,15 +49,22 @@
                     </thead>
                     <tfoot>
                     <tr>
-                        <th> Title </th>
-                        <th> Description </th>
-                        {{-- <th> Shelf No </th> --}}
-                        <th> Image </th>
-                        {{-- <th> Row No </th>
-                        <th> Column No </th> --}}
-                        {{-- <th> Book Image </th>  --}}
-                        {{-- <th> Book Qunatity</th> --}}
-                        {{-- <th> User Id</th> --}}
+                        <th> Company Name </th>
+                        <th> Model </th>
+                        <th> Manufactured Year </th>
+                        <th> Cylinder</th>
+                        <th> CC </th>
+                        <th> Chasis No </th>
+                        <th> Engine No </th>
+                        <th> Color </th>
+                        <th> Seat Capacity </th>
+                        <th> Fuel type </th>
+                        <th> Bought From </th>
+                        <th> Use </th>
+                        <th> Driving Area </th>
+                        <th> Renew Date </th>
+                        <th> Dp image </th>
+                        <th> DD image </th>
                         <th>Actions </th>
                     </tr>
                     </tfoot>

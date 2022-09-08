@@ -196,3 +196,13 @@ Route::get('edit-dotmbluebook/{id}','App\Http\Controllers\Web\DotmBluebookContro
 Route::post('update-dotmbluebook/{id}','App\Http\Controllers\Web\DotmBluebookContro@update');
 Route::get('delete-dotmbluebook/{id}','App\Http\Controllers\Web\DotmBluebookContro@destroy');
 //dotm bluebook
+
+
+//dotm license
+Route::get('create-dotmlicense','App\Http\Controllers\Web\DotmLicenseContro@create');
+Route::post('post-dotmlicense-form','App\Http\Controllers\Web\DotmLicenseContro@store');
+Route::get('all-dotmlicenses','App\Http\Controllers\Web\DotmLicenseContro@index');
+Route::get('edit-dotmlicense/{id}','App\Http\Controllers\Web\DotmLicenseContro@edit');
+Route::post('update-dotmlicense/{id}','App\Http\Controllers\Web\DotmLicenseContro@update');
+Route::get('delete-dotmlicense/{id}','App\Http\Controllers\Web\DotmLicenseContro@destroy');
+//dotm license

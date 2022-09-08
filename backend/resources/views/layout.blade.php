@@ -126,6 +126,22 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-fw fa-folder"></i>
+                <span>Dotm license</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+
+                <a class="dropdown-item" href="{{ URL::to('create-dotmlicense') }}"> Add Dotm license</a>
+                <a class="dropdown-item" href="{{ URL::to('all-dotmlicenses') }}"> All Dotm license </a>
+
+            </div>
+        
+
+
+
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-fw fa-folder"></i>
                 <span>Bluebook</span>
             </a>
             <div class="dropdown-menu" aria-labelledby="pagesDropdown">
