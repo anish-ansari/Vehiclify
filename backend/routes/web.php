@@ -186,3 +186,13 @@ Route::get('edit-drivingschool/{id}','App\Http\Controllers\Web\DrivingSchoolCont
 Route::post('update-drivingschool/{id}','App\Http\Controllers\Web\DrivingSchoolContro@update');
 Route::get('delete-drivingschool/{id}','App\Http\Controllers\Web\DrivingSchoolContro@destroy');
 //driving school end 
+
+
+//dotm bluebook 
+Route::get('create-dotmbluebook','App\Http\Controllers\Web\DotmBluebookContro@create');
+Route::post('post-dotmbluebook-form','App\Http\Controllers\Web\DotmBluebookContro@store');
+Route::get('all-dotmbluebooks','App\Http\Controllers\Web\DotmBluebookContro@index');
+Route::get('edit-dotmbluebook/{id}','App\Http\Controllers\Web\DotmBluebookContro@edit');
+Route::post('update-dotmbluebook/{id}','App\Http\Controllers\Web\DotmBluebookContro@update');
+Route::get('delete-dotmbluebook/{id}','App\Http\Controllers\Web\DotmBluebookContro@destroy');
+//dotm bluebook

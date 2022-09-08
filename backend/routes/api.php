@@ -71,3 +71,5 @@ Route::get('nearbys', 'App\Http\Controllers\NearbyController@index');
 
 Route::get('drivingschools', 'App\Http\Controllers\DrivingSchoolController@index');
 
+
+Route::get('dotmbluebooks', 'App\Http\Controllers\DotmBluebookController@index');

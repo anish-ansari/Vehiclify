@@ -135,6 +135,19 @@
 
             </div>
         </li>
+
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>Dotm Bluebook</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+
+                <a class="dropdown-item" href="{{ URL::to('create-dotmbluebook') }}"> Add Dotm Bluebook</a>
+                <a class="dropdown-item" href="{{ URL::to('all-dotmbluebooks') }}"> All Dotm Bluebook </a>
+
+            </div>
         
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

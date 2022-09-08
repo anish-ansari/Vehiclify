@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:vehiclify/pages/aclass.dart';
 import 'package:vehiclify/pages/bottomnavbar.dart';
 
 
@@ -34,6 +33,9 @@ class _ExamState extends State<Exam> {
       Text('Link is not Working $url');
     }
   }
+
+
+
 
 
 
@@ -83,9 +85,7 @@ class _ExamState extends State<Exam> {
                   ),
 
                   child: InkWell(
-//                   onTap: (){
-////                     Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context)=>new Aclass()));
-//                   },
+//
                     onTap: ()=>navigateToaclass("https://drive.google.com/file/d/1D9UBJLsIMfGaGJRrxwlR6Q_R1DSX8Mgw/view"),
                     child: Center(
                       child: Column(
@@ -112,7 +112,7 @@ class _ExamState extends State<Exam> {
 
                   margin: EdgeInsets.all(8.0),
                   child: InkWell(
-                    onTap: ()=>navigateToaclass("https://drive.google.com/file/d/1S_E-yU96K0Qte7lwk1ATWNQWnQonrFbo/view"),
+                    onTap: ()=>navigateTobclass("https://drive.google.com/file/d/1S_E-yU96K0Qte7lwk1ATWNQWnQonrFbo/view"),
                      child: Center(
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
