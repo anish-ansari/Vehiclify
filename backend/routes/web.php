@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('dashboard');
+    return view('auth.login');
 });
 
 
-Route::get('dashboard' ,'App\Http\Controllers\DashboardController@index');
+// Route::get('dashboard' ,'App\Http\Controllers\DashboardController@index');
 
 Route::get('all-users','App\Http\Controllers\Web\UserContro@index');
 Route::get('all-licenses','App\Http\Controllers\Web\UserContro@index1');
@@ -206,3 +206,11 @@ Route::get('edit-dotmlicense/{id}','App\Http\Controllers\Web\DotmLicenseContro@e
 Route::post('update-dotmlicense/{id}','App\Http\Controllers\Web\DotmLicenseContro@update');
 Route::get('delete-dotmlicense/{id}','App\Http\Controllers\Web\DotmLicenseContro@destroy');
 //dotm license
+
+Auth::routes();
+Route::group(['middleware'=>['auth','admin']],function(){
+    Route::get('/dashboard' ,'App\Http\Controllers\DashboardController@index')->name('dashboard');
+});
+Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

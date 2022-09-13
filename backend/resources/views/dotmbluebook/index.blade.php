@@ -86,7 +86,7 @@
                             <td> {{ $dotmbluebook->dboughtfrom }} </td>
                             <td> {{ $dotmbluebook->duse }} </td>
                             <td> {{ $dotmbluebook->ddrivingarea }} </td>
-                            <td> {{ $dotmbluebook->renewdate }} </td>
+                            <td> {{ $dotmbluebook->drenewdate }} </td>
                             <td> <img src="{{ $dotmbluebook->dpimage }}" width="100" height="100"></td>
                             <td> <img src="{{ $dotmbluebook->dpimage }}" width="100" height="100"></td> 
                             <td>

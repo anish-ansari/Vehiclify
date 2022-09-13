@@ -64,7 +64,7 @@ class _MileageState extends State<Mileage> {
                           child: TextField(
                             controller: _totaltravelkm,
                             decoration: InputDecoration(
-                                labelText: "Total Fuel Filled amount"
+                                labelText: "Total km travel"
                             ),
                             keyboardType: TextInputType.number,
                           )

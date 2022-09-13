@@ -34,6 +34,27 @@ class _ExamState extends State<Exam> {
     }
   }
 
+  navigateTocartrial(url) async
+  {
+    if(await canLaunch(url))
+    {
+      await launch(url);
+    }
+    else {
+      Text('Link is not Working $url');
+    }
+  }
+
+  navigateTobiketrial(url) async
+  {
+    if(await canLaunch(url))
+    {
+      await launch(url);
+    }
+    else {
+      Text('Link is not Working $url');
+    }
+  }
 
 
 
@@ -140,9 +161,7 @@ class _ExamState extends State<Exam> {
 
                   margin: EdgeInsets.all(8.0),
                   child: InkWell(
-                    onTap: () {
-
-                    },
+                    onTap: ()=> navigateTocartrial("https://www.youtube.com/watch?v=lmxpsKbhwZE"),
                     child: Center(
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
@@ -154,7 +173,35 @@ class _ExamState extends State<Exam> {
                                   Icons.grid_on
                               )),
                           Text(
-                            'Traffic Rule',
+                            'Car Trial',
+                            style: new TextStyle(fontSize: 17.0),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Card(
+                  elevation: 5,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30)
+                  ),
+
+                  margin: EdgeInsets.all(8.0),
+                  child: InkWell(
+                    onTap: () =>  navigateTobiketrial("https://www.youtube.com/watch?v=SBDGCRCpgNY"),
+                    child: Center(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          IconButton(
+                              iconSize: 60,
+                              alignment: Alignment.topCenter,
+                              icon: Icon(
+                                  Icons.grid_on
+                              )),
+                          Text(
+                            'Bike Trial',
                             style: new TextStyle(fontSize: 17.0),
                           )
                         ],
@@ -184,7 +231,6 @@ class _ExamState extends State<Exam> {
                           ),
                           Text(
                             'Prepare Exam\nNepal License',
-
                             style: new TextStyle(fontSize: 17.0),
                           )
                         ],

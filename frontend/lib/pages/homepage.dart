@@ -44,6 +44,42 @@ class _HomeState extends State<Home>{
   }
 
 
+
+  navigateTosign(url) async
+  {
+    if(await canLaunch(url))
+    {
+      await launch(url);
+    }
+    else {
+      Text('Link is not Working $url');
+    }
+  }
+
+  navigateTopenalty(url) async
+  {
+    if(await canLaunch(url))
+    {
+      await launch(url);
+    }
+    else {
+      Text('Link is not Working $url');
+    }
+  }
+
+  navigateTopermit(url) async
+  {
+    if(await canLaunch(url))
+    {
+      await launch(url);
+    }
+    else {
+      Text('Link is not Working $url');
+    }
+  }
+
+
+
   bool isLoading=false;
   String url = "http://${Server.ipAddress}/vehiclify/public/api/fules";
 
@@ -237,7 +273,7 @@ class _HomeState extends State<Home>{
                 Row(
                   children: <Widget>[
                     Padding(padding: EdgeInsets.only(left: 25.0)),
-                    Text('Services',
+                    Text('Services & Rule',
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 16,
@@ -461,15 +497,107 @@ class _HomeState extends State<Home>{
                 ),
 
 
+                Padding(padding: EdgeInsets.only(top: 10.0)),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget>[
+                        InkWell(
+                          onTap: ()=>navigateTosign("https://drive.google.com/file/d/11PVMOxW7yH7FXtjEM-A1sdcjryo-0wDK/view"),
+                          child: Card(
+                            elevation: 5,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)
+                            ),
 
+                            child: Container(
+                              height: 130.0,
+                              child: Center(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: <Widget>[
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 15.0,right: 15.0),
+                                      child: Image(image: AssetImage("assets/images/warning.png"),height: 90,width: 90,),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 0, right: 0, bottom: 0),
+                                      child: Text("Traffic Sign",),
+                                    )
 
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        InkWell(
+                          onTap: ()=>navigateTopenalty("https://drive.google.com/file/d/1Hp80d76jW8ueah8Zscgm0MXb7xHdU8hc/view?usp=sharing"),
+                          child: Card(
+                            elevation: 5,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)
+                            ),
 
+                            child: Container(
+                              height: 130.0,
+                              child: Center(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: <Widget>[
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 15.0,right: 15.0),
+                                      child: Image(image: AssetImage("assets/images/penalty.png"),height: 90,width: 90,),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 0, right: 0, bottom: 0),
+                                      child: Text("Penalty",),
+                                    )
 
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        InkWell(
+                          onTap: ()=>navigateTopermit("https://drive.google.com/file/d/1u7S-48aJnOjMRaBg7kQUuAAVNdKJtfTz/view?usp=sharing"),
+                          child: Card(
+                            elevation: 5,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)
+                            ),
 
+                            child: Container(
+                              height: 130.0,
+                              child: Center(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: <Widget>[
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 15.0,right: 15.0),
+                                      child: Image(image: AssetImage("assets/images/permission.png"),height: 90,width: 90,),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 0, right: 0, bottom: 0),
+                                      child: Text("Permit",),
+                                    )
 
-
-
-
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
 
 
 

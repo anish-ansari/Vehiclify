@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:url_launcher/url_launcher.dart';
 import 'package:vehiclify/model/dotm.dart';
 import 'dart:convert';
 import 'package:vehiclify/network_utils/ipaddress.dart';
@@ -14,6 +15,19 @@ class DotmNewsPage extends StatefulWidget {
 }
 
 class _DotmNewsPageState extends State<DotmNewsPage> {
+
+
+  navigateToDotm(url) async
+  {
+    if(await canLaunch(url))
+    {
+      await launch(url);
+    }
+    else {
+      Text('Link is not Working $url');
+    }
+  }
+
 
   bool isLoading=false;
 
@@ -80,6 +94,12 @@ class _DotmNewsPageState extends State<DotmNewsPage> {
           title: Text('DOTM News'),
           centerTitle: true,
           backgroundColor: Colors.lightBlue,
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.account_balance),
+              onPressed: ()=> navigateToDotm("https://dotm.gov.np/"),
+            )
+          ],
         ),
 
         backgroundColor: Colors.white,
