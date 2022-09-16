@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:vehiclify/pages/bottomnavbar.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vehiclify/pages/welcome.dart';
+import 'package:vehiclify/pages/notification.dart';
 
 //void main() {
 //
@@ -14,16 +15,25 @@ import 'package:vehiclify/pages/welcome.dart';
 //  );
 //}
 
-void main() {
-
-  runApp(
-//    MaterialApp(
-//      debugShowCheckedModeBanner: false,
-//      home: CheckAuth(),
+//void main() {
 //
-//    ),
+//  runApp(
+////    MaterialApp(
+////      debugShowCheckedModeBanner: false,
+////      home: CheckAuth(),
+////
+////    ),
+//      App()
+//  );
+//}
+
+void main() async{
+  runApp(
       App()
   );
+  WidgetsFlutterBinding.ensureInitialized();
+  await NotificationService().init(); //
+  await NotificationService().requestIOSPermissions(); //
 }
 
 

@@ -19,6 +19,7 @@ import 'package:vehiclify/pages/license.dart';
 import 'package:vehiclify/pages/mileage.dart';
 import 'package:vehiclify/pages/nearbypage.dart';
 import 'package:vehiclify/pages/note.dart';
+import 'package:vehiclify/pages/reminder.dart';
 import 'package:vehiclify/pages/scanqr.dart';
 import 'package:vehiclify/pages/service.dart';
 import 'package:vehiclify/pages/vehicleage.dart';
@@ -135,6 +136,11 @@ class _HomeState extends State<Home>{
         centerTitle: true,
         backgroundColor: Colors.lightBlue,
         actions: <Widget>[
+          IconButton(icon: Icon(Icons.calendar_today),
+            onPressed: (){
+              Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context)=>new MyNoteScreen()));
+            },
+          ),
           IconButton(icon: Icon(Icons.near_me),
           onPressed: (){
             Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context)=>new NearbyPage()));
