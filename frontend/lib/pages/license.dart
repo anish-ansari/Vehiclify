@@ -41,6 +41,7 @@ class _LicenseState extends State<License> {
   String use;
   String drivingarea;
   String renewdate;
+  String verify;
 
   @override
   void initState() {
@@ -60,6 +61,7 @@ class _LicenseState extends State<License> {
         dateofissue = user['dateofissue'];
         dateofexpiry = user['dateofexpiry'];
         category = user['category'];
+        verify = user['verify'];
 
       });
     }
@@ -95,6 +97,7 @@ class _LicenseState extends State<License> {
           child: QrImage(
             data: 'License Information\n\n'
                 'id: $id\n\n'
+                'verify: $verify\n\n'
                 'License No: $licenseno\n\n'
                 'Licnese office: $licenseoffice\n\n'
                 'Issue Date: $dateofissue\n\n'

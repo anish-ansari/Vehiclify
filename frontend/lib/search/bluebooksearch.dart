@@ -3,6 +3,8 @@ import 'package:vehiclify/model/dotmbluebook.dart';
 import 'package:vehiclify/pages/bottomnavbar.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
+
+
 class BluebookSearch extends SearchDelegate{
 
 
@@ -100,6 +102,15 @@ class ShareBluebookDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.book),
+            onPressed: (){
+              Navigator.pushReplacement(context,
+                  new MaterialPageRoute(builder: (context) => NextPage(book:book)));
+            },
+          ),
+        ],
         centerTitle: true,
         backgroundColor: Colors.lightBlue,
         title: Text("Chasis No: ${book.dchasisno}"),
@@ -130,6 +141,68 @@ class ShareBluebookDetailPage extends StatelessWidget {
             size: 200,
           ),
         ),
+      ),
+    );
+  }
+}
+
+
+
+class NextPage extends StatelessWidget {
+  final DotmBluebook book;
+
+  NextPage({this.book});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "BlueBook Image",
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.lightBlue,
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.home),
+            onPressed: () {
+              Navigator.pushReplacement(context,
+                  new MaterialPageRoute(builder: (context) => MyBottomNavigationBar()));
+            },
+          )
+        ],
+      ),
+      backgroundColor: Colors.white,
+      body: ListView(
+        children: <Widget>[
+          Container(
+            height: 300,
+            child: GridTile(
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 25.0),
+                child: Container(
+                  child: Image.network(book.dpimage),
+                ),
+              ),
+            ),
+          ),
+      Padding(
+        padding: const EdgeInsets.only(bottom: 25.0)),
+          Divider(),
+          Padding(
+              padding: const EdgeInsets.only(bottom: 25.0)),
+          Container(
+            height: 300,
+            child: GridTile(
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 25.0),
+                child: Container(
+                  child: Image.network(book.ddimage),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

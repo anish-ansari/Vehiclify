@@ -35,6 +35,7 @@
                         <th> User Address </th>
                         <th> User FatherName </th>
                         <th> User Citizenship no </th>
+                        <th> Verify </th>
                         {{-- <th> USer Icon </th> --}}
                         <th>Actions </th>
                         
@@ -49,6 +50,7 @@
                         <th> User Address </th>
                         <th> User FatherName </th>
                         <th> User Citizenship no </th>
+                        <th> Verify </th>
                         {{-- <th> User Icon </th> --}}
                         <th>Actions </th>
                     </tr>
@@ -65,6 +67,7 @@
                             <td> {{ $user->address }} </td>
                             <td> {{ $user->fathername }} </td>
                             <td> {{ $user->citizenshipno }} </td>
+                            <td> {{ $user->verify }} </td>
                             {{-- <td> {{ $user->name }} </td> --}}
                             {{-- <td> <img src="{{ $user->icon }}" width="100" height="100"></td> --}}
                             <td>

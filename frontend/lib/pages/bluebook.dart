@@ -31,6 +31,7 @@ class _BlueBookState extends State<BlueBook> {
   String use;
   String drivingarea;
   String renewdate;
+  String verify;
 
   bool isLoading = false;
 
@@ -119,6 +120,7 @@ class _BlueBookState extends State<BlueBook> {
         use = user['use'];
         drivingarea = user['drivingarea'];
         renewdate = user['renewdate'];
+        verify = user['verify'];
       });
     }
   }
@@ -159,6 +161,7 @@ class _BlueBookState extends State<BlueBook> {
           child: QrImage(
             data:
                 'Bluebook Information\n\n'
+                'Verify:$verify\n\n'
                 'Company Name: $companyname\n\n'
                 'Model: $model\n\n'
                 'Manufactured Year: $manufacturedyear\n\n'
