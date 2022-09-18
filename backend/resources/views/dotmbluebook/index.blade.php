@@ -42,6 +42,7 @@
                         <th> Use </th>
                         <th> Driving Area </th>
                         <th> Renew Date </th>
+                        <th> Phone No </th>
                         <th> Dp image </th>
                         <th> DD image </th>
                         <th>Actions </th>
@@ -63,6 +64,7 @@
                         <th> Use </th>
                         <th> Driving Area </th>
                         <th> Renew Date </th>
+                        <th> Phone No </th>
                         <th> Dp image </th>
                         <th> DD image </th>
                         <th>Actions </th>
@@ -87,8 +89,9 @@
                             <td> {{ $dotmbluebook->duse }} </td>
                             <td> {{ $dotmbluebook->ddrivingarea }} </td>
                             <td> {{ $dotmbluebook->drenewdate }} </td>
+                            <td> {{ $dotmbluebook->dphone }} </td>
                             <td> <img src="{{ $dotmbluebook->dpimage }}" width="100" height="100"></td>
-                            <td> <img src="{{ $dotmbluebook->dpimage }}" width="100" height="100"></td> 
+                            <td> <img src="{{ $dotmbluebook->ddimage }}" width="100" height="100"></td> 
                             <td>
                                 <a href="{{ URL::to('edit-dotmbluebook') }}/{{ $dotmbluebook->id }}" class="btn btn-outline-primary btn-sm"> Edit </a>
                                 <hr>

@@ -52,6 +52,7 @@ class DotmBluebookContro extends Controller
         $dotmbluebook->duse=$request->input('duse');
         $dotmbluebook->ddrivingarea=$request->input('ddrivingarea');
         $dotmbluebook->drenewdate=$request->input('drenewdate');
+        $dotmbluebook->dphone=$request->input('dphone');
         $dotmbluebook->dpimage="";
         $dotmbluebook->ddimage="";
         if($dotmbluebook->save()){
@@ -140,6 +141,7 @@ class DotmBluebookContro extends Controller
         $dotmbluebook->duse=$request->input('duse');
         $dotmbluebook->ddrivingarea=$request->input('ddrivingarea');
         $dotmbluebook->drenewdate=$request->input('drenewdate');
+        $dotmbluebook->dphone=$request->input('dphone');
         $dotmbluebook->dpimage="";
         $dotmbluebook->ddimage="";
         if($dotmbluebook->save()){

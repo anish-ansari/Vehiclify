@@ -99,6 +99,11 @@
             <label for="exampleInputEmail1"> Renew Date </label>
             <input type="text" class="form-control" value="{{ $dotmbluebook->drenewdate}}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Renew Date" name="drenewdate">
         </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1"> Phone no </label>
+            <input type="text" class="form-control" value="{{ $dotmbluebook->dphone}}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Phone No" name="dphone">
+        </div>
        
         
         <div class="form-group">

@@ -14,6 +14,7 @@ class DotmBluebook {
   String duse;
   String ddrivingarea;
   String drenewdate;
+  String dphone;
   String dpimage;
   String ddimage;
   String createdAt;
@@ -35,6 +36,7 @@ class DotmBluebook {
         this.duse,
         this.ddrivingarea,
         this.drenewdate,
+        this.dphone,
         this.dpimage,
         this.ddimage,
         this.createdAt,
@@ -56,6 +58,7 @@ class DotmBluebook {
     duse = json['duse'];
     ddrivingarea = json['ddrivingarea'];
     drenewdate = json['drenewdate'];
+    dphone = json['dphone'];
     dpimage = json['dpimage'];
     ddimage = json['ddimage'];
     createdAt = json['created_at'];
@@ -79,6 +82,7 @@ class DotmBluebook {
     data['duse'] = this.duse;
     data['ddrivingarea'] = this.ddrivingarea;
     data['drenewdate'] = this.drenewdate;
+    data['dphone'] = this.dphone;
     data['dpimage'] = this.dpimage;
     data['ddimage'] = this.ddimage;
     data['created_at'] = this.createdAt;

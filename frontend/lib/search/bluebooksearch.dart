@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:vehiclify/model/dotmbluebook.dart';
 import 'package:vehiclify/pages/bottomnavbar.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:sms/sms.dart';
 
 
 
@@ -67,6 +68,9 @@ class BluebookSearch extends SearchDelegate{
                 subtitle: Text(
                     "Engine No: ${suggestionList[index].dengineno}"),
                 onTap: () {
+                  SmsSender sender = new SmsSender();
+                  String address = suggestionList[index].dphone;
+                  sender.sendSms(new SmsMessage(address, 'Your BlueBook info is Fetched'));
                   Navigator.push(
                       context,
                       new MaterialPageRoute(
