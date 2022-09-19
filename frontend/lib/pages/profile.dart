@@ -372,10 +372,10 @@ class _ProfileState extends State<Profile>{
                 child: RaisedButton(
                   elevation: 10,
                   onPressed: (){
-//                    logout();
-                    Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context)=>Welcome()));
+                    logout();
+//                    Navigator.pushReplacement(
+//                        context,
+//                        MaterialPageRoute(builder: (context)=>Welcome()));
                   },
                   color: Colors.lightBlue,
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
