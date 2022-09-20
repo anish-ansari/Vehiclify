@@ -8,6 +8,7 @@ import 'package:vehiclify/model/bikecategory.dart';
 import 'dart:convert';
 import 'package:vehiclify/model/bikemarketmodel.dart';
 import 'package:vehiclify/network_utils/ipaddress.dart';
+import 'package:vehiclify/search/bikemarketsearch.dart';
 
 class BikeMarket extends StatefulWidget {
   @override
@@ -208,11 +209,21 @@ class _BikeMarketPageState extends State<BikeMarketPage> {
                 new MaterialPageRoute(builder: (context) => MyBottomNavigationBar()));
           },
         ),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: (){
+              showSearch(
+                  context: context, delegate: BikeMarketSearch(_productListByCategory));
+            },
+          ),
+        ],
         automaticallyImplyLeading: false,
         title: Text(widget.categoryName),
         centerTitle: true,
         backgroundColor: Colors.lightBlue,
       ),
+
 
       backgroundColor: Colors.white,
 //        body: Container(
@@ -223,7 +234,7 @@ class _BikeMarketPageState extends State<BikeMarketPage> {
         child: CircularProgressIndicator(),
       )
           :
-      _productListByCategory.isEmpty ? Center(child: Text("No moedl found")) : ListView.builder (
+      _productListByCategory.isEmpty ? Center(child: Text("No model found")) : ListView.builder (
         itemCount: _productListByCategory == null ? 0 : _productListByCategory.length,
         itemBuilder: (BuildContext context, index) {
           return Column(

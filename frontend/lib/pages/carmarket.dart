@@ -6,9 +6,9 @@ import 'package:vehiclify/model/carmarketmodel.dart';
 import 'package:vehiclify/pages/bottomnavbar.dart';
 import 'package:http/http.dart' as http;
 import 'package:vehiclify/model/carcategory.dart';
-import 'package:vehiclify/model/bikecategory.dart';
 import 'dart:convert';
 import 'package:vehiclify/network_utils/ipaddress.dart';
+import 'package:vehiclify/search/carmarketsearch.dart';
 
 
 class CarMarket extends StatefulWidget {
@@ -211,6 +211,15 @@ class _CarMarketPageState extends State<CarMarketPage> {
                 new MaterialPageRoute(builder: (context) => MyBottomNavigationBar()));
           },
         ),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: (){
+              showSearch(
+                  context: context, delegate: CarMarketSearch(_productListByCategory));
+            },
+          ),
+        ],
         automaticallyImplyLeading: false,
         title: Text(widget.categoryName),
         centerTitle: true,

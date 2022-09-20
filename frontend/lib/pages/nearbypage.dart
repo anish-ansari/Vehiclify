@@ -6,6 +6,7 @@ import 'dart:convert';
 import 'package:vehiclify/network_utils/ipaddress.dart';
 import 'package:vehiclify/pages/bottomnavbar.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:vehiclify/search/nearbysearch.dart';
 
 
 class NearbyPage extends StatefulWidget {
@@ -92,6 +93,15 @@ class _NearbyPageState extends State<NearbyPage> {
                   new MaterialPageRoute(builder: (context) => MyBottomNavigationBar()));
             },
           ),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.search),
+              onPressed: (){
+                showSearch(
+                    context: context, delegate: NearBySearch(rule));
+              },
+            )
+          ],
           automaticallyImplyLeading: false,
           title: Text('Nearby'),
           centerTitle: true,

@@ -5,6 +5,7 @@ import 'package:vehiclify/model/car.dart';
 import 'dart:convert';
 import 'package:vehiclify/network_utils/ipaddress.dart';
 import 'package:vehiclify/pages/bottomnavbar.dart';
+import 'package:vehiclify/search/carnewssearch.dart';
 
 
 
@@ -83,6 +84,15 @@ class _CarNewsPageState extends State<CarNewsPage> {
             },
           ),
           automaticallyImplyLeading: false,
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.search),
+              onPressed: (){
+                showSearch(
+                    context: context, delegate: CarNewsSearch(rule));
+              },
+            ),
+          ],
           title: Text('Car News'),
           centerTitle: true,
           backgroundColor: Colors.lightBlue,
@@ -95,7 +105,7 @@ class _CarNewsPageState extends State<CarNewsPage> {
         )
             : RefreshIndicator(
           onRefresh: _getData,
-          child: rule.isEmpty ? Center(child: Text("No vendor found")) : ListView.builder (
+          child: rule.isEmpty ? Center(child: Text("No car news found")) : ListView.builder (
             itemCount: rule == null ? 0 : rule.length,
             itemBuilder: (BuildContext context, index) {
               return Column(

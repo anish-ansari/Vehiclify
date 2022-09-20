@@ -6,6 +6,7 @@ import 'dart:convert';
 import 'package:vehiclify/network_utils/ipaddress.dart';
 import 'package:vehiclify/pages/bottomnavbar.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:vehiclify/search/drivingschoolsearch.dart';
 
 
 class DrivingSchoolPage extends StatefulWidget {
@@ -104,6 +105,15 @@ class _DrivingSchoolPageState extends State<DrivingSchoolPage> {
                 new MaterialPageRoute(builder: (context) => MyBottomNavigationBar()));
           },
         ),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: (){
+              showSearch(
+                  context: context, delegate: DrivingSchoolSearch(rule));
+            },
+          )
+        ],
         automaticallyImplyLeading: false,
         title: Text("Driving School"),
         centerTitle: true,

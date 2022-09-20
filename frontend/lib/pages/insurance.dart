@@ -7,6 +7,7 @@ import 'package:vehiclify/network_utils/ipaddress.dart';
 import 'package:vehiclify/pages/bottomnavbar.dart';
 import 'package:vehiclify/pages/homepage.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:vehiclify/search/insurancesearch.dart';
 
 
 
@@ -95,6 +96,15 @@ class _InsurancePageState extends State<InsurancePage> {
                   new MaterialPageRoute(builder: (context) => MyBottomNavigationBar()));
             },
           ),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.search),
+              onPressed: (){
+                showSearch(
+                    context: context, delegate: InsuranceSearch(rule));
+              },
+            )
+          ],
           automaticallyImplyLeading: false,
           title: Text('Insurance'),
           centerTitle: true,

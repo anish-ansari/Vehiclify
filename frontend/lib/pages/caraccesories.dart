@@ -6,6 +6,7 @@ import 'dart:convert';
 import 'package:vehiclify/network_utils/ipaddress.dart';
 import 'package:vehiclify/pages/bottomnavbar.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:vehiclify/search/caraccesoriesearch.dart';
 
 
 
@@ -96,6 +97,15 @@ class _CarAccesoriePageState extends State<CarAccesoriePage> {
             },
           ),
           automaticallyImplyLeading: false,
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.search),
+              onPressed: (){
+                showSearch(
+                    context: context, delegate: CarAccessorieSearch(rule));
+              },
+            )
+          ],
           title: Text('Car Acessories'),
           centerTitle: true,
           backgroundColor: Colors.lightBlue,

@@ -6,6 +6,7 @@ import 'package:vehiclify/model/dotm.dart';
 import 'dart:convert';
 import 'package:vehiclify/network_utils/ipaddress.dart';
 import 'package:vehiclify/pages/bottomnavbar.dart';
+import 'package:vehiclify/search/dotmnewssearch.dart';
 
 
 
@@ -102,6 +103,13 @@ class _DotmNewsPageState extends State<DotmNewsPage> {
           backgroundColor: Colors.lightBlue,
           actions: <Widget>[
             IconButton(
+              icon: Icon(Icons.search),
+              onPressed: (){
+                showSearch(
+                    context: context, delegate: DotmNewsSearch(rule));
+              },
+            ),
+            IconButton(
               icon: Icon(Icons.account_balance),
               onPressed: ()=> navigateToDotm("https://dotm.gov.np/"),
             )
@@ -115,7 +123,7 @@ class _DotmNewsPageState extends State<DotmNewsPage> {
         )
             : RefreshIndicator(
           onRefresh: _getData,
-          child: rule.isEmpty ? Center(child: Text("No vendor found")) : ListView.builder (
+          child: rule.isEmpty ? Center(child: Text("No dotm news found")) : ListView.builder (
             itemCount: rule == null ? 0 : rule.length,
             itemBuilder: (BuildContext context, index) {
               return Column(

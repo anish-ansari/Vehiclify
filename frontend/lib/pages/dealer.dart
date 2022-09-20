@@ -10,6 +10,8 @@ import 'package:vehiclify/model/bikedealer.dart';
 import 'dart:convert';
 import 'package:vehiclify/network_utils/ipaddress.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:vehiclify/search/bikedealersearch.dart';
+import 'package:vehiclify/search/cardealersearch.dart';
 
 
 class Dealer extends StatefulWidget {
@@ -284,11 +286,21 @@ class _CarDealerPageState extends State<CarDealerPage> {
                 new MaterialPageRoute(builder: (context) => MyBottomNavigationBar()));
           },
         ),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: (){
+              showSearch(
+                  context: context, delegate: CarDealerSearch(_productListByCategory));
+            },
+          )
+        ],
         automaticallyImplyLeading: false,
         title: Text(widget.categoryName),
         centerTitle: true,
         backgroundColor: Colors.lightBlue,
       ),
+
 
       backgroundColor: Colors.white,
 //        body: Container(
@@ -299,7 +311,7 @@ class _CarDealerPageState extends State<CarDealerPage> {
         child: CircularProgressIndicator(),
       )
           :
-      _productListByCategory.isEmpty ? Center(child: Text("No service found")) : ListView.builder (
+      _productListByCategory.isEmpty ? Center(child: Text("No dealer found")) : ListView.builder (
         itemCount: _productListByCategory == null ? 0 : _productListByCategory.length,
         itemBuilder: (BuildContext context, index) {
           return Column(
@@ -546,6 +558,15 @@ class _BikeDealerPageState extends State<BikeDealerPage> {
                 new MaterialPageRoute(builder: (context) => MyBottomNavigationBar()));
           },
         ),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: (){
+              showSearch(
+                  context: context, delegate: BikeDealerSearch(_productListByCategory));
+            },
+          )
+        ],
         automaticallyImplyLeading: false,
         title: Text(widget.categoryName),
         centerTitle: true,

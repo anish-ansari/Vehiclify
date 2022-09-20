@@ -11,6 +11,8 @@ import 'package:url_launcher/url_launcher.dart';
 
 import 'dart:convert';
 import 'package:vehiclify/network_utils/ipaddress.dart';
+import 'package:vehiclify/search/bikeservicecentersearch.dart';
+import 'package:vehiclify/search/carservicecentersearch.dart';
 
 
 class Service extends StatefulWidget {
@@ -278,6 +280,15 @@ class _CarServicePageState extends State<CarServicePage> {
                   new MaterialPageRoute(builder: (context) => MyBottomNavigationBar()));
             },
           ),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.search),
+              onPressed: (){
+                showSearch(
+                    context: context, delegate: CarServiceCenterSearch(_productListByCategory));
+              },
+            )
+          ],
           automaticallyImplyLeading: false,
           title: Text(widget.categoryName),
           centerTitle: true,
@@ -539,6 +550,15 @@ class _BikeServicePageState extends State<BikeServicePage> {
                 new MaterialPageRoute(builder: (context) => MyBottomNavigationBar()));
           },
         ),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: (){
+              showSearch(
+                  context: context, delegate: BikeServiceCenterSearch(_productListByCategory));
+            },
+          )
+        ],
         automaticallyImplyLeading: false,
         title: Text(widget.categoryName),
         centerTitle: true,
