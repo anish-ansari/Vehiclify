@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:vehiclify/pages/bottomnavbar.dart';
 import 'package:http/http.dart' as http;
@@ -15,6 +16,7 @@ class BikeMarket extends StatefulWidget {
 
 class _BikeMarketState extends State<BikeMarket> {
   bool isLoading=false;
+  var token;
 
   String url = "http://${Server.ipAddress}/vehiclify/public/api/bikecategorys";
 
@@ -22,7 +24,11 @@ class _BikeMarketState extends State<BikeMarket> {
 
   Future<List<BikeCategory>> fetchRule() async {
     try {
-      final response = await http.get(url);
+      SharedPreferences localStorage = await SharedPreferences.getInstance();
+      token = jsonDecode(localStorage.getString('token'))['token'];
+      final response = await http.get(url,headers: {
+        'Authorization': 'Bearer $token',
+      });
       if (response.statusCode == 200) {
         List<BikeCategory> rule = parseRequestRules(response.body);
         return rule;
@@ -157,9 +163,14 @@ class _BikeMarketPageState extends State<BikeMarketPage> {
   String id;
 
   bool isLoading = false;
+  var token;
 
   Future<List<BikeMarketModel>> getProductsByCategoryId(String id) async{
-    var products = await http.get("http://${Server.ipAddress}/vehiclify/public/api/get-bikemarkets-by-category/${this.widget.categoryId}");
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    token = jsonDecode(localStorage.getString('token'))['token'];
+    var products = await http.get("http://${Server.ipAddress}/vehiclify/public/api/get-bikemarkets-by-category/${this.widget.categoryId}",headers: {
+      'Authorization': 'Bearer $token',
+    });
 
     var notes = List<BikeMarketModel>();
 
@@ -212,7 +223,7 @@ class _BikeMarketPageState extends State<BikeMarketPage> {
         child: CircularProgressIndicator(),
       )
           :
-      _productListByCategory.isEmpty ? Center(child: Text("No service found")) : ListView.builder (
+      _productListByCategory.isEmpty ? Center(child: Text("No moedl found")) : ListView.builder (
         itemCount: _productListByCategory == null ? 0 : _productListByCategory.length,
         itemBuilder: (BuildContext context, index) {
           return Column(

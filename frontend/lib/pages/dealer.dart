@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vehiclify/pages/bottomnavbar.dart';
 import 'package:http/http.dart' as http;
 import 'package:vehiclify/model/carcategory.dart';
@@ -75,6 +76,7 @@ class CarDelCat extends StatefulWidget {
 
 class _CarDelCatState extends State<CarDelCat> {
   bool isLoading=false;
+  var token;
 
   String url = "http://${Server.ipAddress}/vehiclify/public/api/carcategorys";
 
@@ -82,7 +84,11 @@ class _CarDelCatState extends State<CarDelCat> {
 
   Future<List<CarCategory>> fetchRule() async {
     try {
-      final response = await http.get(url);
+      SharedPreferences localStorage = await SharedPreferences.getInstance();
+      token = jsonDecode(localStorage.getString('token'))['token'];
+      final response = await http.get(url,headers: {
+        'Authorization': 'Bearer $token',
+      });
       if (response.statusCode == 200) {
         List<CarCategory> rule = parseRequestRules(response.body);
         return rule;
@@ -195,8 +201,6 @@ class CarDealerPage extends StatefulWidget {
 
 
 
-
-
   final String categoryName;
   final int categoryId;
   CarDealerPage(this.categoryId, this.categoryName);
@@ -236,9 +240,14 @@ class _CarDealerPageState extends State<CarDealerPage> {
   String id;
 
   bool isLoading = false;
+  var token;
 
   Future<List<CarDealer>> getProductsByCategoryId(String id) async{
-    var products = await http.get("http://${Server.ipAddress}/vehiclify/public/api/get-cardealers-by-category/${this.widget.categoryId}");
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    token = jsonDecode(localStorage.getString('token'))['token'];
+    var products = await http.get("http://${Server.ipAddress}/vehiclify/public/api/get-cardealers-by-category/${this.widget.categoryId}",headers: {
+      'Authorization': 'Bearer $token',
+    });
 
     var notes = List<CarDealer>();
 
@@ -333,6 +342,7 @@ class BikeDelCat extends StatefulWidget {
 class _BikeDelCatState extends State<BikeDelCat> {
 
   bool isLoading=false;
+  var token;
 
   String url = "http://${Server.ipAddress}/vehiclify/public/api/bikecategorys";
 
@@ -340,7 +350,11 @@ class _BikeDelCatState extends State<BikeDelCat> {
 
   Future<List<BikeCategory>> fetchRule() async {
     try {
-      final response = await http.get(url);
+      SharedPreferences localStorage = await SharedPreferences.getInstance();
+      token = jsonDecode(localStorage.getString('token'))['token'];
+      final response = await http.get(url,headers: {
+        'Authorization': 'Bearer $token',
+      });
       if (response.statusCode == 200) {
         List<BikeCategory> rule = parseRequestRules(response.body);
         return rule;
@@ -486,9 +500,14 @@ class _BikeDealerPageState extends State<BikeDealerPage> {
   String id;
 
   bool isLoading = false;
+  var token;
 
   Future<List<BikeDealer>> getProductsByCategoryId(String id) async{
-    var products = await http.get("http://${Server.ipAddress}/vehiclify/public/api/get-bikedealers-by-category/${this.widget.categoryId}");
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    token = jsonDecode(localStorage.getString('token'))['token'];
+    var products = await http.get("http://${Server.ipAddress}/vehiclify/public/api/get-bikedealers-by-category/${this.widget.categoryId}",headers: {
+      'Authorization': 'Bearer $token',
+    });
 
     var notes = List<BikeDealer>();
 

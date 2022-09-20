@@ -101,7 +101,7 @@ class _ProfileState extends State<Profile>{
                 padding: const EdgeInsets.fromLTRB(11.0,0.0,0.0,0.0),
                 child: Container(
                   width: MediaQuery.of(context).size.width * 0.80, //80% of width,
-                  child: Text("Personal Detail\n Verify:$verify",
+                  child: Text("Personal Detail\n\n Verify:$verify",
                     style: TextStyle(fontSize: 16),
                   ),
                 ),

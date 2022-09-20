@@ -23,6 +23,8 @@ Route::get('/', function () {
 Route::get('all-users','App\Http\Controllers\Web\UserContro@index');
 Route::get('all-licenses','App\Http\Controllers\Web\UserContro@index1');
 Route::get('all-bluebooks','App\Http\Controllers\Web\UserContro@index2');
+Route::get('edit-user/{id}','App\Http\Controllers\Web\UserContro@edit');
+Route::post('update-user/{id}','App\Http\Controllers\Web\UserContro@update');
 Route::get('delete-user/{id}','App\Http\Controllers\Web\UserContro@destroy');
 
 

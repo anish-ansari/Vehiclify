@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vehiclify/model/nearby.dart';
 import 'dart:convert';
 import 'package:vehiclify/network_utils/ipaddress.dart';
@@ -28,6 +29,7 @@ class _NearbyPageState extends State<NearbyPage> {
 
 
   bool isLoading=false;
+  var token;
 
   String url = "http://${Server.ipAddress}/vehiclify/public/api/nearbys";
 
@@ -35,7 +37,11 @@ class _NearbyPageState extends State<NearbyPage> {
 
   Future<List<Nearby>> fetchRule() async {
     try {
-      final response = await http.get(url);
+      SharedPreferences localStorage = await SharedPreferences.getInstance();
+      token = jsonDecode(localStorage.getString('token'))['token'];
+      final response = await http.get(url,headers: {
+        'Authorization': 'Bearer $token',
+      });
       if (response.statusCode == 200) {
         List<Nearby> rule = parseRequestRules(response.body);
         return rule;

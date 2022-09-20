@@ -35,12 +35,18 @@ class _BlueBookState extends State<BlueBook> {
 
   bool isLoading = false;
 
+  var token;
+
   String url1 =
       "http://${Server.ipAddress}/vehiclify/public/api/dotmbluebooks";
 
   Future<List<DotmBluebook>> fetchBook() async {
     try {
-      final response = await http.get(url1);
+      SharedPreferences localStorage = await SharedPreferences.getInstance();
+      token = jsonDecode(localStorage.getString('token'))['token'];
+      final response = await http.get(url1,headers: {
+        'Authorization': 'Bearer $token',
+      });
       if (response.statusCode == 200) {
         List<DotmBluebook> book = parseRequestBooks(response.body);
         return book;

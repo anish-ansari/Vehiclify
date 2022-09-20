@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vehiclify/model/bike.dart';
 import 'dart:convert';
 import 'package:vehiclify/network_utils/ipaddress.dart';
@@ -16,6 +17,7 @@ class BikeNewsPage extends StatefulWidget {
 class _BikeNewsPageState extends State<BikeNewsPage> {
 
   bool isLoading=false;
+  var token;
 
   String url = "http://${Server.ipAddress}/vehiclify/public/api/bikes";
 
@@ -23,7 +25,11 @@ class _BikeNewsPageState extends State<BikeNewsPage> {
 
   Future<List<Bike>> fetchRule() async {
     try {
-      final response = await http.get(url);
+      SharedPreferences localStorage = await SharedPreferences.getInstance();
+      token = jsonDecode(localStorage.getString('token'))['token'];
+      final response = await http.get(url,headers: {
+        'Authorization': 'Bearer $token',
+      });
       if (response.statusCode == 200) {
         List<Bike> rule = parseRequestRules(response.body);
         return rule;

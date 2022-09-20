@@ -69,7 +69,8 @@ class UserContro extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('user.edit',compact('user'));
     }
 
     /**
@@ -81,7 +82,13 @@ class UserContro extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->verify=$request->input('verify'); 
+        if($user->save()){
+
+            return redirect()->back()->with('success','Update Successfully');
+        }
+        return redirect()->back()->with('failed','Could not update'); 
     }
 
     /**

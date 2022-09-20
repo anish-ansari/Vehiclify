@@ -23,34 +23,11 @@
     <form action="{{ URL::to('update-user') }}/{{ $user->id }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
-            <label for="exampleInputEmail1"> User Name</label>
-            <input type="text" class="form-control" value="{{ $user->user_name }}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter user name" name="user_name">
+            <label for="exampleInputEmail1"> Verify Status </label>
+            <input type="text" class="form-control" value="{{ $user->verify }}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Verify Status" name="verify">
         </div>
-
-        <div class="form-group">
-            <label for="exampleInputEmail1"> User Email</label>
-            <input type="text" class="form-control" value="{{ $user->email }}" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
-        </div>
-
-        {{-- <div class="form-group">
-            <label for="exampleInputEmail1"> requestbook Icon </label>
-            <input type="file" class="form-control" name="requestbookIcon" onchange="loadPhoto(event)">
-        </div>
-
-        <div>
-            <img id="photo" height="100" width="100">
-        </div> --}}
 
         <button type="submit" class="btn btn-primary"> Update </button>
     </form>
-    {{-- <script>
-        function loadPhoto(event) {
-            var reader = new FileReader();
-            reader.onload = function () {
-                var output = document.getElementById('photo');
-                output.src = reader.result;
-            };
-            reader.readAsDataURL(event.target.files[0]);
-        }
-    </script> --}}
+
 @stop

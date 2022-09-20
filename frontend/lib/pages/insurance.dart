@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:vehiclify/model/insurance.dart';
 import 'dart:convert';
 import 'package:vehiclify/network_utils/ipaddress.dart';
@@ -29,6 +30,7 @@ class _InsurancePageState extends State<InsurancePage> {
 
 
   bool isLoading=false;
+  var token;
 
   String url = "http://${Server.ipAddress}/vehiclify/public/api/insurances";
 
@@ -36,7 +38,11 @@ class _InsurancePageState extends State<InsurancePage> {
 
   Future<List<Insurance>> fetchRule() async {
     try {
-      final response = await http.get(url);
+      SharedPreferences localStorage = await SharedPreferences.getInstance();
+      token = jsonDecode(localStorage.getString('token'))['token'];
+      final response = await http.get(url,headers: {
+        'Authorization': 'Bearer $token',
+      });
       if (response.statusCode == 200) {
         List<Insurance> rule = parseRequestRules(response.body);
         return rule;

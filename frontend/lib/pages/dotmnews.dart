@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:vehiclify/model/dotm.dart';
 import 'dart:convert';
@@ -30,6 +31,7 @@ class _DotmNewsPageState extends State<DotmNewsPage> {
 
 
   bool isLoading=false;
+  var token;
 
   String url = "http://${Server.ipAddress}/vehiclify/public/api/dotms";
 
@@ -37,7 +39,11 @@ class _DotmNewsPageState extends State<DotmNewsPage> {
 
   Future<List<Dotm>> fetchRule() async {
     try {
-      final response = await http.get(url);
+      SharedPreferences localStorage = await SharedPreferences.getInstance();
+      token = jsonDecode(localStorage.getString('token'))['token'];
+      final response = await http.get(url,headers: {
+        'Authorization': 'Bearer $token',
+      });
       if (response.statusCode == 200) {
         List<Dotm> rule = parseRequestRules(response.body);
         return rule;

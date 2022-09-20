@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:vehiclify/model/carmarketmodel.dart';
 import 'package:vehiclify/pages/bottomnavbar.dart';
@@ -18,6 +19,7 @@ class CarMarket extends StatefulWidget {
 class _CarMarketState extends State<CarMarket> {
 
   bool isLoading=false;
+  var token;
 
   String url = "http://${Server.ipAddress}/vehiclify/public/api/carcategorys";
 
@@ -25,7 +27,11 @@ class _CarMarketState extends State<CarMarket> {
 
   Future<List<CarCategory>> fetchRule() async {
     try {
-      final response = await http.get(url);
+      SharedPreferences localStorage = await SharedPreferences.getInstance();
+      token = jsonDecode(localStorage.getString('token'))['token'];
+      final response = await http.get(url,headers: {
+        'Authorization': 'Bearer $token',
+      });
       if (response.statusCode == 200) {
         List<CarCategory> rule = parseRequestRules(response.body);
         return rule;
@@ -160,9 +166,15 @@ class _CarMarketPageState extends State<CarMarketPage> {
   String id;
 
   bool isLoading = false;
+  var token;
+
 
   Future<List<CarMarketModel>> getProductsByCategoryId(String id) async{
-    var products = await http.get("http://${Server.ipAddress}/vehiclify/public/api/get-carmarkets-by-category/${this.widget.categoryId}");
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    token = jsonDecode(localStorage.getString('token'))['token'];
+    var products = await http.get("http://${Server.ipAddress}/vehiclify/public/api/get-carmarkets-by-category/${this.widget.categoryId}",headers: {
+      'Authorization': 'Bearer $token',
+    });
 
     var notes = List<CarMarketModel>();
 

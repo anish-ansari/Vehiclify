@@ -71,9 +71,9 @@
                             {{-- <td> {{ $user->name }} </td> --}}
                             {{-- <td> <img src="{{ $user->icon }}" width="100" height="100"></td> --}}
                             <td>
-                                {{-- <a href="{{ URL::to('edit-user') }}/{{ $user->id }}" class="btn btn-outline-primary btn-sm"> Edit </a> --}}
-                                {{-- <a href="{{ URL::to('soft-delete-user') }}/{{ $user->id }}" class="btn btn-outline-warning btn-sm" onclick="checkDelete()">Soft Delete </a>
-                                <hr> --}}
+                                <a href="{{ URL::to('edit-user') }}/{{ $user->id }}" class="btn btn-outline-primary btn-sm"> Edit </a>
+                                {{-- <a href="{{ URL::to('soft-delete-user') }}/{{ $user->id }}" class="btn btn-outline-warning btn-sm" onclick="checkDelete()">Soft Delete </a> --}}
+                                <hr> 
                                 <a href="{{ URL::to('delete-user') }}/{{ $user->id }}" class="btn btn-outline-danger btn-sm" onclick="checkDelete()"> Delete </a>
                             </td>
 

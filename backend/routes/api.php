@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,52 +26,81 @@ Route::group(['prefix' => 'v1'], function () {
 });
 
 
-Route::get('fules', 'App\Http\Controllers\FuelpriceController@index');
+Route::middleware(['auth:api'])->group(function () {
+    Route::get('fules', 'App\Http\Controllers\FuelpriceController@index');
+    Route::get('insurances', 'App\Http\Controllers\InsuranceController@index');
+    Route::get('caraccesories', 'App\Http\Controllers\CarAccesorieController@index');
+    Route::get('bikeaccesories', 'App\Http\Controllers\BikeAccesorieController@index');
+    Route::get('dotms', 'App\Http\Controllers\DotmController@index');
+    Route::get('cars', 'App\Http\Controllers\CarController@index');
+    Route::get('bikes', 'App\Http\Controllers\BikeController@index');
+    Route::get('carcategorys', 'App\Http\Controllers\CarCategoryController@index');
+    Route::get('carservices', 'App\Http\Controllers\CarServiceController@index');
+    Route::get('get-carsevices-by-category/{categoryId}', 'App\Http\Controllers\CarServiceController@getCarServicesByCategoryId');
+    Route::get('bikecategorys', 'App\Http\Controllers\BikeCategoryController@index');
+    Route::get('bikeservices', 'App\Http\Controllers\BikeServiceController@index');
+    Route::get('get-bikesevices-by-category/{categoryId}', 'App\Http\Controllers\BikeServiceController@getBikeServicesByCategoryId');
+    Route::get('cardealers', 'App\Http\Controllers\CarDealerController@index');
+    Route::get('get-cardealers-by-category/{categoryId}', 'App\Http\Controllers\CarDealerController@getCarDealerByCategoryId');
+    Route::get('bikedealers', 'App\Http\Controllers\BikeDealerController@index');
+    Route::get('get-bikedealers-by-category/{categoryId}', 'App\Http\Controllers\BikeDealerController@getBikeDealerByCategoryId');
+    Route::get('carmarkets', 'App\Http\Controllers\CarMarketController@index');
+    Route::get('get-carmarkets-by-category/{categoryId}', 'App\Http\Controllers\CarMarketController@getCarMarketByCategoryId');
+    Route::get('bikemarkets', 'App\Http\Controllers\BikeMarketController@index');
+    Route::get('get-bikemarkets-by-category/{categoryId}', 'App\Http\Controllers\BikeMarketController@getBikeMarketByCategoryId');
+    Route::get('nearbys', 'App\Http\Controllers\NearbyController@index');
+    Route::get('drivingschools', 'App\Http\Controllers\DrivingSchoolController@index');
+    Route::get('dotmbluebooks', 'App\Http\Controllers\DotmBluebookController@index');
+    Route::get('dotmlicenses', 'App\Http\Controllers\DotmLicenseController@index');    
+    
+});
 
-Route::get('insurances', 'App\Http\Controllers\InsuranceController@index');
+// Route::get('fules', 'App\Http\Controllers\FuelpriceController@index');
 
-Route::get('caraccesories', 'App\Http\Controllers\CarAccesorieController@index');
+// Route::get('insurances', 'App\Http\Controllers\InsuranceController@index');
 
-Route::get('bikeaccesories', 'App\Http\Controllers\BikeAccesorieController@index');
+// Route::get('caraccesories', 'App\Http\Controllers\CarAccesorieController@index');
 
-Route::get('dotms', 'App\Http\Controllers\DotmController@index');
+// Route::get('bikeaccesories', 'App\Http\Controllers\BikeAccesorieController@index');
 
-Route::get('cars', 'App\Http\Controllers\CarController@index');
+// Route::get('dotms', 'App\Http\Controllers\DotmController@index');
 
-Route::get('bikes', 'App\Http\Controllers\BikeController@index');
+// Route::get('cars', 'App\Http\Controllers\CarController@index');
 
-Route::get('carcategorys', 'App\Http\Controllers\CarCategoryController@index');
+// Route::get('bikes', 'App\Http\Controllers\BikeController@index');
 
-Route::get('carservices', 'App\Http\Controllers\CarServiceController@index');
+// Route::get('carcategorys', 'App\Http\Controllers\CarCategoryController@index');
 
-Route::get('get-carsevices-by-category/{categoryId}', 'App\Http\Controllers\CarServiceController@getCarServicesByCategoryId');
+// Route::get('carservices', 'App\Http\Controllers\CarServiceController@index');
 
-Route::get('bikecategorys', 'App\Http\Controllers\BikeCategoryController@index');
+// Route::get('get-carsevices-by-category/{categoryId}', 'App\Http\Controllers\CarServiceController@getCarServicesByCategoryId');
 
-Route::get('bikeservices', 'App\Http\Controllers\BikeServiceController@index');
+// Route::get('bikecategorys', 'App\Http\Controllers\BikeCategoryController@index');
 
-Route::get('get-bikesevices-by-category/{categoryId}', 'App\Http\Controllers\BikeServiceController@getBikeServicesByCategoryId');
+// Route::get('bikeservices', 'App\Http\Controllers\BikeServiceController@index');
 
-Route::get('cardealers', 'App\Http\Controllers\CarDealerController@index');
+// Route::get('get-bikesevices-by-category/{categoryId}', 'App\Http\Controllers\BikeServiceController@getBikeServicesByCategoryId');
 
-Route::get('get-cardealers-by-category/{categoryId}', 'App\Http\Controllers\CarDealerController@getCarDealerByCategoryId');
+// Route::get('cardealers', 'App\Http\Controllers\CarDealerController@index');
 
-Route::get('bikedealers', 'App\Http\Controllers\BikeDealerController@index');
+// Route::get('get-cardealers-by-category/{categoryId}', 'App\Http\Controllers\CarDealerController@getCarDealerByCategoryId');
 
-Route::get('get-bikedealers-by-category/{categoryId}', 'App\Http\Controllers\BikeDealerController@getBikeDealerByCategoryId');
+// Route::get('bikedealers', 'App\Http\Controllers\BikeDealerController@index');
 
-Route::get('carmarkets', 'App\Http\Controllers\CarMarketController@index');
+// Route::get('get-bikedealers-by-category/{categoryId}', 'App\Http\Controllers\BikeDealerController@getBikeDealerByCategoryId');
 
-Route::get('get-carmarkets-by-category/{categoryId}', 'App\Http\Controllers\CarMarketController@getCarMarketByCategoryId');
+// Route::get('carmarkets', 'App\Http\Controllers\CarMarketController@index');
 
-Route::get('bikemarkets', 'App\Http\Controllers\BikeMarketController@index');
+// Route::get('get-carmarkets-by-category/{categoryId}', 'App\Http\Controllers\CarMarketController@getCarMarketByCategoryId');
 
-Route::get('get-bikemarkets-by-category/{categoryId}', 'App\Http\Controllers\BikeMarketController@getBikeMarketByCategoryId');
+// Route::get('bikemarkets', 'App\Http\Controllers\BikeMarketController@index');
 
-Route::get('nearbys', 'App\Http\Controllers\NearbyController@index');
+// Route::get('get-bikemarkets-by-category/{categoryId}', 'App\Http\Controllers\BikeMarketController@getBikeMarketByCategoryId');
 
-Route::get('drivingschools', 'App\Http\Controllers\DrivingSchoolController@index');
+// Route::get('nearbys', 'App\Http\Controllers\NearbyController@index');
 
-Route::get('dotmbluebooks', 'App\Http\Controllers\DotmBluebookController@index');
+// Route::get('drivingschools', 'App\Http\Controllers\DrivingSchoolController@index');
 
-Route::get('dotmlicenses', 'App\Http\Controllers\DotmLicenseController@index');
+// Route::get('dotmbluebooks', 'App\Http\Controllers\DotmBluebookController@index');
+
+// Route::get('dotmlicenses', 'App\Http\Controllers\DotmLicenseController@index');
