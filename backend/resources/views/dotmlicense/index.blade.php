@@ -39,6 +39,7 @@
                         <th> Date of issue </th>
                         <th> Date of expiry </th>
                         <th> Category </th>
+                        <th>Image </th>
                         <th>Actions </th>
                     </tr>
                     </thead>
@@ -55,6 +56,7 @@
                         <th> Date of issue </th>
                         <th> Date of expiry </th>
                         <th> Category </th>
+                        <th>Image </th>
                         <th>Actions </th>
                     </tr>
                     </tfoot>
